@@ -15,7 +15,7 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="assets/materialize/css/materialize.min.css" media="screen,projection" />
 
     <title>Stock Calculator</title>
 </head>
@@ -57,7 +57,23 @@
                 <div class="main-display">
                     Main Display
                     <br>
-                    <div class="panel-body">
+                    <div class="row">
+                        <div class="stock-buy-calc col s12" data-visibility="hidden">
+                            Enter a stock symbol to BUY
+                            <div class="input-field inline" data-visibility="hidden">
+                                <input id="stock-symbol" type="stock-symbol" class="validate">
+                                <label for="stock-symbol" data-error="wrong" data-success="right">Stock Symbol</label>
+                            </div>
+                        </div>
+                        <div class="stock-sell-calc col s12" data-visibility="hidden">
+                            Enter a stock symbol to SELL
+                            <div class="input-field inline" data-visibility="hidden">
+                                <input id="stock-symbol" type="stock-symbol" class="validate">
+                                <label for="stock-symbol" data-error="wrong" data-success="right">Stock Symbol</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="basic-calculator panel-body" data-visibility="hidden">
                         <button id="button-1" class="btn btn-primary number" value="1">
                             <h1>1</h1>
                         </button>
@@ -119,7 +135,7 @@
                         </button>
                     </div>
                     <br>
-                    <div class="panel-body2">
+                    <div class="basic-calculator panel-body2" data-visibility="hidden">
                         <button id="button-1" class="btn btn-primary number" value="1">
                             <h1>1</h1>
                         </button>
@@ -180,7 +196,8 @@
                             <h1>clear</h1>
                         </button>
                     </div>
-                    <div class="panel-body3">
+
+                    <div class="basic-calculator panel-body3" data-visibility="hidden">
                         <button id="button-1" class="btn btn-primary number" value="1">
                             <h1>1</h1>
                         </button>
@@ -289,6 +306,14 @@
     </script>
     <!-- TradingView Widget END -->
 
+            <div class="news-feed">
+                News Feed
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="assets/javascript/app.js"></script>
+    <script type="text/javascript" src="assets/materialize/js/materialize.min.js"></script>
 </body>
 
 </html>
