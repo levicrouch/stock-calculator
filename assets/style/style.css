@@ -52,15 +52,6 @@ header {
     float: right;
 
 }
-<<<<<<< HEAD
-
-/*
-.tv-embed-widget-wrapper {
-    max-width: 70%;
-}
-*/
-=======
 .basic-calculator, .stock-buy-calc, .stock-sell-calc{
     display: none;
 }
->>>>>>> d62a6a77c085b894f86ebecce069230dc507007e
