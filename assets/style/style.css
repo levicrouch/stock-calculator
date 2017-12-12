@@ -1,3 +1,15 @@
+#logo{
+    background-image: url('../images/stock-exchange-chart.jpg'); 
+    color: white;
+    border-radius: 100px;
+    padding: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    height: 100%;
+  }
+h1{
+    font-size: 50px;
+}
 header {
     height: 150px;
     background-color: rgb(14, 176, 226);
@@ -7,9 +19,8 @@ header {
     background-color: gray;
     position: fixed;
 }
-.column {
-    border: 2px solid;
-}
+
+
 .left-nav {
     height: 600px;
     width: 150px;
@@ -22,9 +33,11 @@ header {
 .main-display {
     height: 600px;
     width: 900px;
-    border: 2px solid;
+    
     float: right;
-    background-color: rgb(14, 176, 226);
+    /* background-image: url('../images/borat.jpg');  */
+    
+    /* background-color: rgb(14, 176, 226); */
     text-align: center;
     position: relative;
 }
@@ -46,13 +59,8 @@ header {
     position: static;
 }
 .panel-body3 {
-<<<<<<< Updated upstream
-    float: right;
-    position: static;
-=======
     float: left;
 }
 .basic-calculator, .stock-buy-calc, .stock-sell-calc {
     display: none;
->>>>>>> Stashed changes
 }
