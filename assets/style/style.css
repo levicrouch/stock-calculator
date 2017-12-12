@@ -3,6 +3,10 @@ header {
     background-color: rgb(14, 176, 226);
     text-align: center;
 }
+.container {
+    background-color: gray;
+    position: fixed;
+}
 .column {
     border: 2px solid;
 }
@@ -12,6 +16,8 @@ header {
     border: 2px solid;
     float: left;
     background-color: rgb(14, 176, 226);
+    text-align: center;
+    position: absolute;
 }
 .main-display {
     height: 600px;
@@ -20,26 +26,26 @@ header {
     float: right;
     background-color: rgb(14, 176, 226);
     text-align: center;
-    /* position: ; */
+    position: relative;
 }
 .news-feed {
     height: 300px;
     background-color: rgb(14, 176, 226);
     clear: both; 
+    text-align: center;
+    text-decoration: bold;
+    font-size: 25px;
+    position: absolute;
 }
-.container {
-    background-color: gray;
-}
-
 .panel-body {
-   /* position: relative; */
-   float: left;
+   position: static;
+   float: right;
 }
-
 .panel-body2 {
-    float: left;
+    float: right;
+    position: static;
 }
-
 .panel-body3 {
-    float: left;
+    float: right;
+    position: static;
 }
