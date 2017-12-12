@@ -25,7 +25,7 @@ header {
 
 
 .left-nav {
-    height: 600px;
+    height: 400px;
     width: 220px;
     border: 2px solid;
     float: left;
@@ -54,5 +54,22 @@ header {
    /* position: static; */
    float: right;
 }
-.basic-calculator, .stock-buy-calc, .stock-sell-calc{
+.panel-body2 {
+    float: right;
+    /* position: static; */
+}
+.panel-body3 {
+
+    float: right;
+
+}
+.basic-calculator, .stock-sell-calc{
     display: none;
+}
+.stock-buy-calc {
+    display: none;
+}
+.fixed-action-btn {
+    right: unset;
+    position: unset;
+}

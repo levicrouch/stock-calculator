@@ -63,7 +63,9 @@ $(document).ready(function(){
 ///////////////////////////////////////////////////
 // Use case: I have X amount of money to invest, how many shares of Y company can I buy?
 // Show the stock buy calculator when the button is pushed
+
 function stockBuyCalculator() {
+    console.log("In the stockBuyCalculator function");
     if ($(html.stockBuyCalcClass).attr("data-visibility", "hidden")) {
         var isVisible = false;
     } else if ($(html.stockBuyCalcClass).attr("data-visibility", "visible")) {

@@ -10,12 +10,13 @@
         crossorigin="anonymous"></script>
     <!-- Adding bootstrap 3.3.7 CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- Adding our stylesheet -->
-    <link rel="stylesheet" href="assets/style/style.css">
+    
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="assets/materialize/css/materialize.min.css"  media="screen,projection"/>
+    <!-- Adding our stylesheet -->
+    <link rel="stylesheet" href="assets/style/style.css">
     <title>Stock Calculator</title>
 </head>
 
@@ -34,13 +35,34 @@
             <div class="column col-sm-4">
                 <div class="left-nav">
                     left Navigation
-                   
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" class="form-control" placeholder="Search for...">
                         <span class="input-group-btn">
-                            <button class="btn btn-primary" type="button">Go!</button>
+                            <button class="btn btn-primary" id="add-query" type="button">Go!</button>
                         </span>
                     </div>
+                    <!-- <div class="fixed-action-btn">
+                        <a class="large btn tooltipped btn-floating waves-effect waves-light btn black">
+                          <i class="large material-icons">insert_chart</i>
+                        </a>
+                        <ul>
+                          <li><a class="btn tooltipped waves-effect waves-light btn black" data-position="right"data-delay="50" data-tooltip="Quotes"><i class="material-icons">insert_chart</i></a></li>
+                          <li><a class="waves-effect waves-light btn green"><i class="material-icons">exposure</i></a></li>
+                          <li><a class="waves-effect waves-light btn red"><i class="material-icons">exposure</i></a></li>
+                          <li><a class="waves-effect waves-light btn yellow"><i class="material-icons">attach_money</i></a></li>
+                        </ul>
+                      </div> -->
+                      <!-- <div class="fixed-action-btn">
+                        <a class="large btn tooltipped btn-floating waves-effect waves-light btn black">
+                          <i class="large material-icons">insert_chart</i>
+                        </a>
+                        <ul>
+                          <li><a class="btn tooltipped waves-effect waves-light btn black" data-position="right"data-delay="50" data-tooltip="Quotes"><i class="material-icons">insert_chart</i></a></li>
+                          <li><a class="waves-effect waves-light btn green"><i class="material-icons">exposure</i></a></li>
+                          <li><a class="waves-effect waves-light btn red"><i class="material-icons">exposure</i></a></li>
+                          <li><a class="waves-effect waves-light btn yellow"><i class="material-icons">attach_money</i></a></li>
+                        </ul>
+                      </div> -->
                 </div>
             </div>
             <div class="column col-sm-8">
@@ -55,6 +77,10 @@
                                     <div class="collapsible-body stock-price"><span id="stock-price">Lorem ipsum dolor sit amet.</span></div>
                                   </li>
                                   <li>
+                                    <div class="collapsible-header z-depth-2"><i class="material-icons">attach_money</i>Stock Tools</div>
+                                    <div class="collapsible-body stock-price"><span id="stock-price">Lorem ipsum dolor sit amet.</span></div>
+                                  </li>
+                                  <li>
                                     <div class="collapsible-header z-depth-2"><i class="material-icons">chrome_reader_mode</i>News</div>
                                     <div class="collapsible-body company-news"><span id="company-news">Lorem ipsum dolor sit amet.</span></div>
                                   </li>
@@ -66,6 +92,7 @@
                             <div class="input-field inline" data-visibility="hidden">
                                 <input id="stock-symbol" type="stock-symbol" class="validate">
                                 <label for="stock-symbol" data-error="wrong" data-success="right">Stock Symbol</label>
+                                <a class="waves-effect waves-light btn"><i class="material-icons right">chevron_right</i>button</a>
                             </div>
                         </div>
                         <div class="stock-sell-calc col s12" data-visibility="hidden">
