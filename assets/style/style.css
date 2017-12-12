@@ -19,6 +19,7 @@ header {
     border: 2px solid;
     float: right;
     background-color: rgb(14, 176, 226);
+    text-align: center;
     /* position: ; */
 }
 .news-feed {
@@ -32,4 +33,13 @@ header {
 
 .panel-body {
    /* position: relative; */
+   float: left;
+}
+
+.panel-body2 {
+    float: left;
+}
+
+.panel-body3 {
+    float: left;
 }
