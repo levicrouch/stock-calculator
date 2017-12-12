@@ -19,6 +19,7 @@ header {
     border: 2px solid;
     float: right;
     background-color: rgb(14, 176, 226);
+    /* position: ; */
 }
 .news-feed {
     height: 300px;
@@ -27,4 +28,8 @@ header {
 }
 .container {
     background-color: gray;
+}
+
+.panel-body {
+   /* position: relative; */
 }
