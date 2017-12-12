@@ -3,6 +3,38 @@ console.log("We are in the javascript");
 ///////////////////////////////////////////////////
 // Variables and objects
 ///////////////////////////////////////////////////
+var companies = ["AAPL" , "MSFT" , "AMZN" , "FB" ,
+                "GOOG" , "GOOGL" , "INTC" , "CSCO",
+                "CMCSA" , "AMGN" , "NVDA" , "AVGO",
+                "GILD" , "TXN" , "QCOM" , "KHC",
+                "PYPL" , "ADBE" , "CHTR" , "SBUX",
+                "CELG" , "PCLN" , "COST" , "NFLX",
+                "WBA"];
+                // Apple Inc 
+                // Microsoft Corp
+                // Amazon
+                // Facebook
+                // Alphabet Inc C
+                // Alphabet Inc A
+                // Intel Corp
+                // Cisco
+                // Comcast 
+                // Amgen Inc
+                // NVIDIA
+                // Broadcom
+                // Gilead Sciences
+                // Texas Instruments
+                // Qualcomm
+                // The Kraft
+                // Paypal
+                // Adobe
+                // Charter Communications
+                // Starbucks
+                // Celgene
+                // Priceline
+                // Costco
+                // Netflix
+                // Walgreens
 
 ///////////////////////////////////////////////////
 // Functions
