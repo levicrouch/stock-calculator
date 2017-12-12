@@ -1,3 +1,15 @@
+#logo{
+    background-image: url('../images/stock-exchange-chart.jpg'); 
+    color: white;
+    border-radius: 100px;
+    padding: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    height: 100%;
+  }
+h1{
+    font-size: 50px;
+}
 header {
     height: 150px;
     background-color: rgb(14, 176, 226);
@@ -5,14 +17,16 @@ header {
 }
 .container {
     background-color: gray;
-    position: fixed;
+    left: 100px;
+    right: 100px;
+    float: center;
+    /* position: fixed; */
 }
-.column {
-    border: 2px solid;
-}
+
+
 .left-nav {
     height: 600px;
-    width: 150px;
+    width: 220px;
     border: 2px solid;
     float: left;
     background-color: rgb(14, 176, 226);
@@ -24,7 +38,7 @@ header {
     width: 900px;
     border: 2px solid;
     float: right;
-    background-color: rgb(14, 176, 226);
+    /* background-image: url('../images/borat.jpg');  */
     text-align: center;
     position: relative;
 }
@@ -35,12 +49,12 @@ header {
     text-align: center;
     text-decoration: bold;
     font-size: 25px;
-    position: absolute;
 }
 .panel-body {
-   position: static;
+   /* position: static; */
    float: right;
 }
+<<<<<<< HEAD
 .panel-body2 {
     float: right;
     position: static;
@@ -53,3 +67,7 @@ header {
 .basic-calculator, .stock-buy-calc, .stock-sell-calc {
     display: none;
 }
+=======
+.basic-calculator, .stock-buy-calc, .stock-sell-calc{
+    display: none;
+>>>>>>> d378888a1e3df863720ea109970b7632f1154fd1

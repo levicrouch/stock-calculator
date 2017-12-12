@@ -15,36 +15,26 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="assets/materialize/css/materialize.min.css" media="screen,projection" />
-
+    <link type="text/css" rel="stylesheet" href="assets/materialize/css/materialize.min.css"  media="screen,projection"/>
     <title>Stock Calculator</title>
 </head>
 
 <body>
     <!-- Spencer was here -->
-    <div class="container">
-        <div class="row">
-            <div class="column col-sm-12">
-                <header>Stock Ticker goes here</header>
+    <div class="row">
+            <!-- Page Title -->
+            <div id="logo" class="col-sm-12">  
+              <h1 class="text-center">Stock Calculator</h1>
+              <h2 class="text-center"></h2>
+              <h4 class="text-center"></h4>
             </div>
-        </div>
-        <div class="row">
-            <div class="column col-sm-12">
-                <div class="column col-sm-4">
-                    <div>Current Nasdaq Price</div>
-                </div>
-                <div class="column col-sm-4">
-                    <div>Current S&P 500 Price</div>
-                </div>
-                <div class="column col-sm-4">
-                    <div>Current Dow Jones Price</div>
-                </div>
-            </div>
-        </div>
+          </div>
+        
         <div class="row">
             <div class="column col-sm-4">
                 <div class="left-nav">
                     left Navigation
+                   
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search">
                         <span class="input-group-btn">
@@ -55,8 +45,21 @@
             </div>
             <div class="column col-sm-8">
                 <div class="main-display">
+
                     Main Display
+
                     <br>
+                    <ul class="collapsible z-depth-2 " data-collapsible="expandable" data-visibility="hidden">
+                            <li>
+                                    <div class="collapsible-header z-depth-2"><i class="material-icons">attach_money</i>Stock Price</div>
+                                    <div class="collapsible-body stock-price"><span id="stock-price">Lorem ipsum dolor sit amet.</span></div>
+                                  </li>
+                                  <li>
+                                    <div class="collapsible-header z-depth-2"><i class="material-icons">chrome_reader_mode</i>News</div>
+                                    <div class="collapsible-body company-news"><span id="company-news">Lorem ipsum dolor sit amet.</span></div>
+                                  </li>
+
+                                  </ul>
                     <div class="row">
                         <div class="stock-buy-calc col s12" data-visibility="hidden">
                             Enter a stock symbol to BUY
@@ -134,142 +137,17 @@
                             <h1>clear</h1>
                         </button>
                     </div>
-                    <br>
-                    <div class="basic-calculator panel-body2" data-visibility="hidden">
-                        <button id="button-1" class="btn btn-primary number" value="1">
-                            <h1>1</h1>
-                        </button>
-                        <button id="button-2" class="btn btn-primary number" value="2">
-                            <h1>2</h1>
-                        </button>
-                        <button id="button-3" class="btn btn-primary number" value="3">
-                            <h1>3</h1>
-                        </button>
-                        <button id="button-plus" class="btn btn-danger operator" value="plus">
-                            <h1>+</h1>
-                        </button>
-                        <br>
-                        <br>
-                        <button id="button-4" class="btn btn-primary number" value="4">
-                            <h1>4</h1>
-                        </button>
-                        <button id="button-5" class="btn btn-primary number" value="5">
-                            <h1>5</h1>
-                        </button>
-                        <button id="button-6" class="btn btn-primary number" value="6">
-                            <h1>6</h1>
-                        </button>
-                        <button id="button-minus" class="btn btn-danger operator" value="minus">
-                            <h1>&minus;</h1>
-                        </button>
-                        <br>
-                        <br>
-                        <button id="button-7" class="btn btn-primary number" value="7">
-                            <h1>7</h1>
-                        </button>
-                        <button id="button-8" class="btn btn-primary number" value="8">
-                            <h1>8</h1>
-                        </button>
-                        <button id="button-9" class="btn btn-primary number" value="9">
-                            <h1>9</h1>
-                        </button>
-                        <button id="button-multiply" class="btn btn-danger operator" value="times">
-                            <h1>&times;</h1>
-                        </button>
-                        <br>
-                        <br>
-                        <button id="button-0" class="btn btn-primary number" value="0">
-                            <h1>0</h1>
-                        </button>
-                        <button id="button-divide" class="btn btn-danger operator" value="divide">
-                            <h1>&divide;</h1>
-                        </button>
-                        <button id="button-power" class="btn btn-danger operator" value="power">
-                            <h1>^</h1>
-                        </button>
-                        <button id="button-equal" class="btn btn-success equal" value="equals">
-                            <h1>=</h1>
-                        </button>
-                        <br>
-                        <br>
-                        <button id="button-clear" class="btn btn-default clear" value="clear">
-                            <h1>clear</h1>
-                        </button>
-                    </div>
-
-                    <div class="basic-calculator panel-body3" data-visibility="hidden">
-                        <button id="button-1" class="btn btn-primary number" value="1">
-                            <h1>1</h1>
-                        </button>
-                        <button id="button-2" class="btn btn-primary number" value="2">
-                            <h1>2</h1>
-                        </button>
-                        <button id="button-3" class="btn btn-primary number" value="3">
-                            <h1>3</h1>
-                        </button>
-                        <button id="button-plus" class="btn btn-danger operator" value="plus">
-                            <h1>+</h1>
-                        </button>
-                        <br>
-                        <br>
-                        <button id="button-4" class="btn btn-primary number" value="4">
-                            <h1>4</h1>
-                        </button>
-                        <button id="button-5" class="btn btn-primary number" value="5">
-                            <h1>5</h1>
-                        </button>
-                        <button id="button-6" class="btn btn-primary number" value="6">
-                            <h1>6</h1>
-                        </button>
-                        <button id="button-minus" class="btn btn-danger operator" value="minus">
-                            <h1>&minus;</h1>
-                        </button>
-                        <br>
-                        <br>
-                        <button id="button-7" class="btn btn-primary number" value="7">
-                            <h1>7</h1>
-                        </button>
-                        <button id="button-8" class="btn btn-primary number" value="8">
-                            <h1>8</h1>
-                        </button>
-                        <button id="button-9" class="btn btn-primary number" value="9">
-                            <h1>9</h1>
-                        </button>
-                        <button id="button-multiply" class="btn btn-danger operator" value="times">
-                            <h1>&times;</h1>
-                        </button>
-                        <br>
-                        <br>
-                        <button id="button-0" class="btn btn-primary number" value="0">
-                            <h1>0</h1>
-                        </button>
-                        <button id="button-divide" class="btn btn-danger operator" value="divide">
-                            <h1>&divide;</h1>
-                        </button>
-                        <button id="button-power" class="btn btn-danger operator" value="power">
-                            <h1>^</h1>
-                        </button>
-                        <button id="button-equal" class="btn btn-success equal" value="equals">
-                            <h1>=</h1>
-                        </button>
-                        <br>
-                        <br>
-                        <button id="button-clear" class="btn btn-default clear" value="clear">
-                            <h1>clear</h1>
-                        </button>
-                    </div>
                 </div>
-
+            </div>
+        </div>
+        <div class="row">
+            <div class="column col-sm-12">
+                <div class="news-feed">
+                    News Feed
+                </div>
             </div>
         </div>
 
-    </div>
-    <div class="row">
-        <div class="column col-sm-12">
-            <!-- <div class="news-feed">
-                    News Feed
-                </div> -->
-        </div>
     </div>
 
     </div>
@@ -279,36 +157,37 @@
 
     <!-- TradingView Widget BEGIN -->
     <script src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js">{
-        "symbols": [
-            {
-                "proName": "INDEX:SPX",
-                "title": "S&P 500"
-            },
-            {
-                "proName": "INDEX:IUXX",
-                "title": "Nasdaq 100"
-            },
-            {
-                "proName": "FX_IDC:EURUSD",
-                "title": "EUR/USD"
-            },
-            {
-                "proName": "NYMEX:CL1!",
-                "title": "Crude Oil"
-            },
-            {
-                "proName": "FX_IDC:XAUUSD",
-                "title": "Gold"
-            }
-        ],
-            "locale": "en"
-    }</script>
+            "symbols": [
+                {
+                    "proName": "INDEX:SPX",
+                    "title": "S&P 500"
+                },
+                {
+                    "proName": "INDEX:IUXX",
+                    "title": "Nasdaq 100"
+                },
+                {
+                    "proName": "FX_IDC:EURUSD",
+                    "title": "EUR/USD"
+                },
+                {
+                    "proName": "NYMEX:CL1!",
+                    "title": "Crude Oil"
+                },
+                {
+                    "proName": "FX_IDC:XAUUSD",
+                    "title": "Gold"
+                }
+            ],
+                "locale": "en"
+        }
+    </script>
     <!-- TradingView Widget END -->
 
-            <div class="news-feed">
+    <!-- <div class="news-feed">
                 News Feed
             </div>
-        </div>
+        </div> -->
     </div>
     </div>
     <script src="assets/javascript/app.js"></script>
