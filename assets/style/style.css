@@ -1,0 +1,30 @@
+header {
+    height: 150px;
+    background-color: rgb(14, 176, 226);
+    text-align: center;
+}
+.column {
+    border: 2px solid;
+}
+.left-nav {
+    height: 600px;
+    width: 150px;
+    border: 2px solid;
+    float: left;
+    background-color: rgb(14, 176, 226);
+}
+.main-display {
+    height: 600px;
+    width: 900px;
+    border: 2px solid;
+    float: right;
+    background-color: rgb(14, 176, 226);
+}
+.news-feed {
+    height: 300px;
+    background-color: rgb(14, 176, 226);
+    clear: both; 
+}
+.container {
+    background-color: gray;
+}

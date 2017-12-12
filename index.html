@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Adding jquery 3.2.1 reference -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <!-- Adding bootstrap 3.3.7 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Adding our stylesheet -->
+    <link rel="stylesheet" href="assets/style/style.css">
+
+    <title>Stock Calculator</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="column col-sm-12">
+                <header>Stock Ticker goes here</header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column col-sm-12">
+                <div class="column col-sm-4">
+                    <div>Current Nasdaq Price</div>
+                </div>
+                <div class="column col-sm-4">
+                    <div>Current S&P 500 Price</div>
+                </div>
+                <div class="column col-sm-4">
+                    <div>Current Dow Jones Price</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column col-sm-4">
+                <div class="left-nav">
+                    left Navigation
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for symbol...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="button">Go!</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="column col-sm-8">
+                <div class="main-display">
+                    Main Display
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="column col-sm-12">
+                <div class="news-feed">
+                    News Feed
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/javascript/app.js"></script>
+</body>
+
+</html>
