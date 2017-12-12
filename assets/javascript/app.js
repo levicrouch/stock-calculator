@@ -3,39 +3,43 @@ console.log("We are in the javascript");
 ///////////////////////////////////////////////////
 // Variables and objects
 ///////////////////////////////////////////////////
-var companies = ["AAPL" , "MSFT" , "AMZN" , "FB" ,
-                "GOOG" , "GOOGL" , "INTC" , "CSCO",
-                "CMCSA" , "AMGN" , "NVDA" , "AVGO",
-                "GILD" , "TXN" , "QCOM" , "KHC",
-                "PYPL" , "ADBE" , "CHTR" , "SBUX",
-                "CELG" , "PCLN" , "COST" , "NFLX",
-                "WBA"];
-                // Apple Inc 
-                // Microsoft Corp
-                // Amazon
-                // Facebook
-                // Alphabet Inc C
-                // Alphabet Inc A
-                // Intel Corp
-                // Cisco
-                // Comcast 
-                // Amgen Inc
-                // NVIDIA
-                // Broadcom
-                // Gilead Sciences
-                // Texas Instruments
-                // Qualcomm
-                // The Kraft
-                // Paypal
-                // Adobe
-                // Charter Communications
-                // Starbucks
-                // Celgene
-                // Priceline
-                // Costco
-                // Netflix
-                // Walgreens
-
+var companies = ["AAPL", "MSFT", "AMZN", "FB",
+    "GOOG", "GOOGL", "INTC", "CSCO",
+    "CMCSA", "AMGN", "NVDA", "AVGO",
+    "GILD", "TXN", "QCOM", "KHC",
+    "PYPL", "ADBE", "CHTR", "SBUX",
+    "CELG", "PCLN", "COST", "NFLX",
+    "WBA"];
+// Apple Inc 
+// Microsoft Corp
+// Amazon
+// Facebook
+// Alphabet Inc C
+// Alphabet Inc A
+// Intel Corp
+// Cisco
+// Comcast 
+// Amgen Inc
+// NVIDIA
+// Broadcom
+// Gilead Sciences
+// Texas Instruments
+// Qualcomm
+// The Kraft
+// Paypal
+// Adobe
+// Charter Communications
+// Starbucks
+// Celgene
+// Priceline
+// Costco
+// Netflix
+// Walgreens
+var html = {
+    basicCalculatorClass: ".basic-calculator",
+    stockBuyCalcClass: ".stock-buy-calc",
+    stockSellCalcClass: ".stock-sell-calc"
+};
 ///////////////////////////////////////////////////
 // Functions
 ///////////////////////////////////////////////////
@@ -52,7 +56,18 @@ var companies = ["AAPL" , "MSFT" , "AMZN" , "FB" ,
 // stock buy calculator
 ///////////////////////////////////////////////////
 // Use case: I have X amount of money to invest, how many shares of Y company can I buy?
+// Show the stock buy calculator when the button is pushed
+function stockBuyCalculator() {
+    if ($(html.stockBuyCalcClass).attr("data-visibility", "hidden")) {
+        var isVisible = false;
+    } else if ($(html.stockBuyCalcClass).attr("data-visibility", "visible")) {
+        var isVisible = true;
+    }
+    if (isVisible = false) {
+        $(html.stockBuyCalcClass).show
+    }
 
+}
 ///////////////////////////////////////////////////
 // stock sell calculator
 ///////////////////////////////////////////////////

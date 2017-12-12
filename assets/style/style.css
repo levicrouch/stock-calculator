@@ -46,6 +46,13 @@ header {
     position: static;
 }
 .panel-body3 {
+<<<<<<< Updated upstream
     float: right;
     position: static;
+=======
+    float: left;
+}
+.basic-calculator, .stock-buy-calc, .stock-sell-calc {
+    display: none;
+>>>>>>> Stashed changes
 }
