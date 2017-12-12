@@ -52,3 +52,6 @@ header {
     float: right;
 
 }
+.basic-calculator, .stock-buy-calc, .stock-sell-calc{
+    display: none;
+}
