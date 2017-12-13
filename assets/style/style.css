@@ -13,11 +13,12 @@
 
 .main-display {
     height: 600px;
+    width: 33.333%;
 }
 
 .main-display,
 .news-feed {
-    background-color: rgb(14, 176, 226);
+    background-color: rgb(173, 189, 189);
     padding: 15px;
     border: 2px solid;
     width: 100%;
@@ -37,4 +38,11 @@
 .stock-buy-calc,
 .stock-sell-calc {
     display: none;
+}
+.stock-tools {
+    height: 250px;
+}
+.stock-buy-button {
+    left: 200px;
+
 }
