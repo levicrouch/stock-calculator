@@ -34,11 +34,12 @@
         <div class="row">
             <div class="column col-sm-4">
                 <div class="left-nav">
-                    left Navigation
+                    <h3>Left Navbar</h3>
+                   
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search for...">
                         <span class="input-group-btn">
-                            <button class="btn btn-primary" id="add-query" type="button">Go!</button>
+                            <button onclick="stockBuyCalculator()" class="btn btn-primary" id="add-query" type="button">Go!</button>
                         </span>
                     </div>
                     <!-- <div class="fixed-action-btn">
@@ -78,7 +79,7 @@
                                   </li>
                                   <li>
                                     <div class="collapsible-header z-depth-2"><i class="material-icons">attach_money</i>Stock Tools</div>
-                                    <div class="collapsible-body stock-price"><span id="stock-price">Lorem ipsum dolor sit amet.</span></div>
+                                    <div class="collapsible-body stock-tools"></div>
                                   </li>
                                   <li>
                                     <div class="collapsible-header z-depth-2"><i class="material-icons">chrome_reader_mode</i>News</div>
@@ -87,14 +88,6 @@
 
                                   </ul>
                     <div class="row">
-                        <div class="stock-buy-calc col s12" data-visibility="hidden">
-                            Enter a stock symbol to BUY
-                            <div class="input-field inline" data-visibility="hidden">
-                                <input id="stock-symbol" type="stock-symbol" class="validate">
-                                <label for="stock-symbol" data-error="wrong" data-success="right">Stock Symbol</label>
-                                <a class="waves-effect waves-light btn"><i class="material-icons right">chevron_right</i>button</a>
-                            </div>
-                        </div>
                         <div class="stock-sell-calc col s12" data-visibility="hidden">
                             Enter a stock symbol to SELL
                             <div class="input-field inline" data-visibility="hidden">
