@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Adding jquery 3.2.1 reference -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <!-- Adding bootstrap 3.3.7 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Adding our stylesheet -->
+    <link rel="stylesheet" href="assets/style/style.css">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="assets/materialize/css/materialize.min.css" media="screen,projection" />
+    <title>Stock Calculator</title>
+</head>
+
+<body>
+    <!-- Spencer was here -->
+    <div class="row">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">Stocks.com</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li>
+                        <a href="sass.html">Find A Company</a>
+                    </li>
+                    <li>
+                        <a href="badges.html">Educate Yourself</a>
+                    </li>
+                    <li>
+                        <a href="collapsible.html">Coming Soon</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="carousel">
+            <a class="carousel-item" href="#one!">
+                <img src="assets/images/amazon.png">
+            </a>
+            <a class="carousel-item" href="#two!">
+                <img class="apple" src="assets/images/apple.png">
+            </a>
+            <a class="carousel-item" href="#three!">
+                <img class="tesla"src="assets/images/tesla.png">
+            </a>
+            <a class="carousel-item" href="#four!">
+                <img class="netflix" src="assets/images/netflix.png">
+            </a>
+            <a class="carousel-item" href="#five!">
+                <img class="jpmorgan" src="assets/images/jpmorgan.png">
+            </a>
+            <a class="carousel-item" href="#six!">
+                <img class="alphabet" src="assets/images/alphabet.png">
+            </a>
+            <a class="carousel-item" href="#seven!">
+                <img class="berkshire" src="assets/images/berkshire.png">
+            </a>
+            <a class="carousel-item" href="#eight!">
+                <img class="microsoft" src="assets/images/microsoft.png">
+            </a>
+            <a class="carousel-item" href="#nine!">
+                <img class="disney" src="assets/images/disney.png">
+            </a>
+            <a class="carousel-item" href="#ten!">
+                <img class="johnson" src="assets/images/johnson.png">
+            </a>
+        </div>
+
+    </div>
+
+    <div class="row">
+    
+        <div class="column col-sm-12">
+            <div class="main-display">
+
+                Main Display
+
+                <br>
+                <ul class="collapsible z-depth-2 " data-collapsible="expandable" data-visibility="hidden">
+                    <li>
+                        <div class="collapsible-header z-depth-2">
+                            <i class="material-icons">attach_money</i>Stock Price</div>
+                        <div class="collapsible-body stock-price">
+                            <span id="stock-price">Lorem ipsum dolor sit amet.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header z-depth-2">
+                            <i class="material-icons">chrome_reader_mode</i>News</div>
+                        <div class="collapsible-body company-news">
+                            <span id="company-news">Lorem ipsum dolor sit amet.</span>
+                        </div>
+                    </li>
+
+                </ul>
+                <div class="row">
+                    <div class="stock-buy-calc col s12" data-visibility="hidden">
+                        Enter a stock symbol to BUY
+                        <div class="input-field inline" data-visibility="hidden">
+                            <input id="stock-symbol" type="stock-symbol" class="validate">
+                            <label for="stock-symbol" data-error="wrong" data-success="right">Stock Symbol</label>
+                        </div>
+                    </div>
+                    <div class="stock-sell-calc col s12" data-visibility="hidden">
+                        Enter a stock symbol to SELL
+                        <div class="input-field inline" data-visibility="hidden">
+                            <input id="stock-symbol" type="stock-symbol" class="validate">
+                            <label for="stock-symbol" data-error="wrong" data-success="right">Stock Symbol</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="basic-calculator panel-body" data-visibility="hidden">
+                    <button id="button-1" class="btn btn-primary number" value="1">
+                        <h1>1</h1>
+                    </button>
+                    <button id="button-2" class="btn btn-primary number" value="2">
+                        <h1>2</h1>
+                    </button>
+                    <button id="button-3" class="btn btn-primary number" value="3">
+                        <h1>3</h1>
+                    </button>
+                    <button id="button-plus" class="btn btn-danger operator" value="plus">
+                        <h1>+</h1>
+                    </button>
+                    <br>
+                    <br>
+                    <button id="button-4" class="btn btn-primary number" value="4">
+                        <h1>4</h1>
+                    </button>
+                    <button id="button-5" class="btn btn-primary number" value="5">
+                        <h1>5</h1>
+                    </button>
+                    <button id="button-6" class="btn btn-primary number" value="6">
+                        <h1>6</h1>
+                    </button>
+                    <button id="button-minus" class="btn btn-danger operator" value="minus">
+                        <h1>&minus;</h1>
+                    </button>
+                    <br>
+                    <br>
+                    <button id="button-7" class="btn btn-primary number" value="7">
+                        <h1>7</h1>
+                    </button>
+                    <button id="button-8" class="btn btn-primary number" value="8">
+                        <h1>8</h1>
+                    </button>
+                    <button id="button-9" class="btn btn-primary number" value="9">
+                        <h1>9</h1>
+                    </button>
+                    <button id="button-multiply" class="btn btn-danger operator" value="times">
+                        <h1>&times;</h1>
+                    </button>
+                    <br>
+                    <br>
+                    <button id="button-0" class="btn btn-primary number" value="0">
+                        <h1>0</h1>
+                    </button>
+                    <button id="button-divide" class="btn btn-danger operator" value="divide">
+                        <h1>&divide;</h1>
+                    </button>
+                    <button id="button-power" class="btn btn-danger operator" value="power">
+                        <h1>^</h1>
+                    </button>
+                    <button id="button-equal" class="btn btn-success equal" value="equals">
+                        <h1>=</h1>
+                    </button>
+                    <br>
+                    <br>
+                    <button id="button-clear" class="btn btn-default clear" value="clear">
+                        <h1>clear</h1>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="column col-sm-12">
+            <div class="news-feed">
+                News Feed
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    </div>
+
+    <script src="assets/javascript/app.js"></script>
+    <script type="text/javascript" src="assets/materialize/js/materialize.min.js"></script>
+
+    <!-- TradingView Widget BEGIN -->
+    <script src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js">{
+            "symbols": [
+                {
+                    "proName": "INDEX:SPX",
+                    "title": "S&P 500"
+                },
+                {
+                    "proName": "INDEX:IUXX",
+                    "title": "Nasdaq 100"
+                },
+                {
+                    "proName": "FX_IDC:EURUSD",
+                    "title": "EUR/USD"
+                },
+                {
+                    "proName": "NYMEX:CL1!",
+                    "title": "Crude Oil"
+                },
+                {
+                    "proName": "FX_IDC:XAUUSD",
+                    "title": "Gold"
+                }
+            ],
+                "locale": "en"
+        }
+    </script>
+    <!-- TradingView Widget END -->
+
+    <!-- <div class="news-feed">
+                News Feed
+            </div>
+        </div> -->
+    </div>
+    </div>
+    <script src="assets/javascript/app.js"></script>
+    <script type="text/javascript" src="assets/materialize/js/materialize.min.js"></script>
+</body>
+
+</html>
