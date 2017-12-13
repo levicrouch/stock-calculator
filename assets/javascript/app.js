@@ -3,7 +3,7 @@ console.log("We are in the javascript");
 ///////////////////////////////////////////////////
 // Variables and objects
 ///////////////////////////////////////////////////
-var companies = ["AAPL", "MSFT", "AMZN", "FB",
+var companies = ["Apple: AAPL", "MSFT", "AMZN", "FB",
     "GOOG", "GOOGL", "INTC", "CSCO",
     "CMCSA", "AMGN", "NVDA", "AVGO",
     "GILD", "TXN", "QCOM", "KHC",
