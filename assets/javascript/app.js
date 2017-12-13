@@ -3,38 +3,29 @@ console.log("We are in the javascript");
 ///////////////////////////////////////////////////
 // Variables and objects
 ///////////////////////////////////////////////////
-var companies = ["AAPL", "MSFT", "AMZN", "FB",
-    "GOOG", "GOOGL", "INTC", "CSCO",
-    "CMCSA", "AMGN", "NVDA", "AVGO",
-    "GILD", "TXN", "QCOM", "KHC",
-    "PYPL", "ADBE", "CHTR", "SBUX",
-    "CELG", "PCLN", "COST", "NFLX",
-    "WBA"];
-// Apple Inc 
-// Microsoft Corp
-// Amazon
-// Facebook
-// Alphabet Inc C
-// Alphabet Inc A
-// Intel Corp
-// Cisco
-// Comcast 
-// Amgen Inc
-// NVIDIA
-// Broadcom
-// Gilead Sciences
-// Texas Instruments
-// Qualcomm
-// The Kraft
-// Paypal
-// Adobe
-// Charter Communications
-// Starbucks
-// Celgene
-// Priceline
-// Costco
-// Netflix
-// Walgreens
+var company = {
+    name: [
+        "Apple", "Microsoft", "Amazon", "Facebook",
+        "Google", "Alphabet", "Intel", "Cisco",
+        "Comcast", "Amgen", "Nvidia", "Broadcom",
+        "Gilead Sciences", "Texas Instruments", "Qualcomm", "Kraft Heinz",
+        "Paypal", "Adobe", "Charter Communications", "Starbucks",
+        "Celgene", "Priceline", "Costco", "Netflix",
+        "Walgreens", "Tesla"
+    ],
+    symbol: [
+        "AAPL", "MSFT", "AMZN", "FB",
+        "GOOG", "GOOGL", "INTC", "CSCO",
+        "CMCSA", "AMGN", "NVDA", "AVGO",
+        "GILD", "TXN", "QCOM", "KHC",
+        "PYPL", "ADBE", "CHTR", "SBUX",
+        "CELG", "PCLN", "COST", "NFLX",
+        "WBA","TSLA"]
+}
+
+for (i = 0; i < company.name.length; i++){
+    console.log("Company name: " + company.name[i] + " Stock Symbol: " + company.symbol[i]);
+}
 var html = {
     basicCalculatorClass: ".basic-calculator",
     stockBuyCalcClass: ".stock-tools",
@@ -64,13 +55,13 @@ var html = {
 ///////////////////////////////////////////////////
 // $(document).ready(function () {
 //     $('.collapsible').collapsible();
-    $(html.stockBuyButton).on("click", function (event) {
-        event.preventDefault();
-        var getInvestmentAmount = $(html.investmentAmountInput.val());
-        console.log("getInvestmentAmount", getInvestmentAmount);
-        // calculateShares(html.investmentAmountInput,html.stockPrice)){
+$(html.stockBuyButton).on("click", function (event) {
+    event.preventDefault();
+    var getInvestmentAmount = $(html.investmentAmountInput.val());
+    console.log("getInvestmentAmount", getInvestmentAmount);
+    // calculateShares(html.investmentAmountInput,html.stockPrice)){
 
-    });
+});
 // });
 ///////////////////////////////////////////////////
 // stock ticker code
