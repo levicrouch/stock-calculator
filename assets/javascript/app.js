@@ -63,16 +63,7 @@ var html = {
 ///////////////////////////////////////////////////
 // Main Display
 ///////////////////////////////////////////////////
-// $(document).ready(function () {
-//     $('.collapsible').collapsible();
-$(html.stockBuyButton).on("click", function (event) {
-    event.preventDefault();
-    var getInvestmentAmount = $(html.investmentAmountInput.val());
-    console.log("getInvestmentAmount", getInvestmentAmount);
-    // calculateShares(html.investmentAmountInput,html.stockPrice)){
 
-});
-// });
 ///////////////////////////////////////////////////
 // stock ticker code
 ///////////////////////////////////////////////////
@@ -83,140 +74,140 @@ $(html.stockBuyButton).on("click", function (event) {
 // Use case: I have X amount of money to invest, how many shares of Y company can I buy?
 // Show the stock buy calculator when the button is pushed
 
-function stockBuyCalculator() {
-    console.log("In the stockBuyCalculator function");
-    // Create a new span
-    var newSpan = $("<span>");
-    // set the class of the new div
-    newSpan.attr("id", "stock-tools");
-    newSpan.attr("data-visibility", "visible");
-    // newSpan.html("<p>Enter amount to invest:</p>");
-    // Add the new div to the "stock-tools" span
-    $(html.stockBuyCalcClass).append(newSpan);
+// function stockBuyCalculator() {
+//     console.log("In the stockBuyCalculator function");
+//     // Create a new span
+//     var newSpan = $("<span>");
+//     // set the class of the new div
+//     newSpan.attr("id", "stock-tools");
+//     newSpan.attr("data-visibility", "visible");
+//     // newSpan.html("<p>Enter amount to invest:</p>");
+//     // Add the new div to the "stock-tools" span
+//     $(html.stockBuyCalcClass).append(newSpan);
 
-    // Create the symbol as a read-only div for reference
-    var symbolDiv = $("<div>");
-    symbolDiv.addClass("input-field col s4");
-    symbolDiv.attr("id", "symbol-read-only");
-    // Add the new input box into the newDiv
-    $(html.stockToolsSpan).append(symbolDiv);
+//     // Create the symbol as a read-only div for reference
+//     var symbolDiv = $("<div>");
+//     symbolDiv.addClass("input-field col s4");
+//     symbolDiv.attr("id", "symbol-read-only");
+//     // Add the new input box into the newDiv
+//     $(html.stockToolsSpan).append(symbolDiv);
 
-    // Create a new input field for capturing the amount to invest
-    var symbolDisabledInput = $("<input disabled>");
-    symbolDisabledInput.addClass("col s4 validate");
-    symbolDisabledInput.attr("value", "MSFT");
-    symbolDisabledInput.attr("id", "disabled");
-    symbolDisabledInput.attr("type", "text");
-    // Add the new input box into the newDiv
-    $(html.symbolDiv).append(symbolDisabledInput);
+//     // Create a new input field for capturing the amount to invest
+//     var symbolDisabledInput = $("<input disabled>");
+//     symbolDisabledInput.addClass("col s4 validate");
+//     symbolDisabledInput.attr("value", "MSFT");
+//     symbolDisabledInput.attr("id", "disabled");
+//     symbolDisabledInput.attr("type", "text");
+//     // Add the new input box into the newDiv
+//     $(html.symbolDiv).append(symbolDisabledInput);
 
-    // Add a disabled input box for displaying the stock's current price
-    // Create the symbol as a read-only div for reference
-    var currentPriceDiv = $("<div>");
-    currentPriceDiv.addClass("input-field col s4");
-    currentPriceDiv.attr("id", "price-read-only");
-    // Add the new input box into the newDiv
-    $(html.stockToolsSpan).append(currentPriceDiv);
+//     // Add a disabled input box for displaying the stock's current price
+//     // Create the symbol as a read-only div for reference
+//     var currentPriceDiv = $("<div>");
+//     currentPriceDiv.addClass("input-field col s4");
+//     currentPriceDiv.attr("id", "price-read-only");
+//     // Add the new input box into the newDiv
+//     $(html.stockToolsSpan).append(currentPriceDiv);
 
-    // Create a new input field for capturing the amount to invest
-    var priceDisabledInput = $("<input disabled>");
-    priceDisabledInput.addClass("col s4 validate");
-    priceDisabledInput.attr("value", "$85.58");
-    priceDisabledInput.attr("id", "stock-price");
-    priceDisabledInput.attr("type", "text");
-    // Add the new input box into the newDiv
-    $(html.priceDiv).append(priceDisabledInput);
-
-
-    // Add a div for storing the amount to invest input 
-    // Create the symbol as a read-only div for reference
-    var amountToInvestDiv = $("<div>");
-    amountToInvestDiv.addClass("input-field col s4");
-    amountToInvestDiv.attr("id", "amount-to-invest");
-    // Add the new input box into the newDiv
-    $(html.stockToolsSpan).append(amountToInvestDiv);
-
-    // Create a new input field for capturing the current stock price
-    var amountToInvestInput = $("<input>");
-    amountToInvestInput.addClass("validate");
-    amountToInvestInput.attr("id", "amount-to-invest");
-    // Add the new input box into the newDiv
-    $(html.investmentAmountInput).append(amountToInvestInput);
-
-    // Create new label for amount to invest
-    var amountToInvestLabel = $("<label>");
-    // Set attributes for the label element
-    amountToInvestLabel.attr("for", "amount-to-invest");
-    amountToInvestLabel.attr("data-error", "wrong");
-    amountToInvestLabel.attr("data-success", "right");
-    amountToInvestLabel.append("Amount to Invest");
-    // Add the new label into the new input "amountToInvestInput"
-    $(html.investmentAmountInput).append(amountToInvestLabel);
+//     // Create a new input field for capturing the amount to invest
+//     var priceDisabledInput = $("<input disabled>");
+//     priceDisabledInput.addClass("col s4 validate");
+//     priceDisabledInput.attr("value", "$85.58");
+//     priceDisabledInput.attr("id", "stock-price");
+//     priceDisabledInput.attr("type", "text");
+//     // Add the new input box into the newDiv
+//     $(html.priceDiv).append(priceDisabledInput);
 
 
-    // Add a div for storing the amount to invest input 
-    // Create the commision as a read-only div for reference
-    var commissionDiv = $("<div>");
-    commissionDiv.addClass("input-field col s4");
-    commissionDiv.attr("id", "commission-amount");
-    // Add the new input box into the newDiv
-    $(html.stockToolsSpan).append(commissionDiv);
+//     // Add a div for storing the amount to invest input 
+//     // Create the symbol as a read-only div for reference
+//     var amountToInvestDiv = $("<div>");
+//     amountToInvestDiv.addClass("input-field col s4");
+//     amountToInvestDiv.attr("id", "amount-to-invest");
+//     // Add the new input box into the newDiv
+//     $(html.stockToolsSpan).append(amountToInvestDiv);
 
-    // Create a new input field for capturing the commission price
-    var amountToInvestInput = $("<input>");
-    amountToInvestInput.addClass("validate");
-    amountToInvestInput.attr("id", "commision-amount");
-    // Add the new input box into the newDiv
-    $(html.commissionID).append(amountToInvestInput);
+//     // Create a new input field for capturing the current stock price
+//     var amountToInvestInput = $("<input>");
+//     amountToInvestInput.addClass("validate");
+//     amountToInvestInput.attr("id", "amount-to-invest");
+//     // Add the new input box into the newDiv
+//     $(html.investmentAmountInput).append(amountToInvestInput);
 
-    // Create new label for commission
-    var commissionLabel = $("<label>");
-    // Set attributes for the label element
-    commissionLabel.attr("for", "commision-amount");
-    commissionLabel.attr("data-error", "wrong");
-    commissionLabel.attr("data-success", "right");
-    commissionLabel.append("Commision");
-    // Add the new label into the new input "amountToInvestInput"
-    $(html.commissionID).append(commissionLabel);
-
-    // Create the symbol as a read-only div for reference
-    var sharesDiv = $("<div>");
-    sharesDiv.addClass("input-field col s4");
-    sharesDiv.attr("id", "shares-read-only");
-    // Add the new input box into the newDiv
-    $(html.stockToolsSpan).append(sharesDiv);
-
-    // Create a new input field for capturing the amount to invest
-    var sharesDisabledInput = $("<input disabled>");
-    sharesDisabledInput.addClass("col s4 validate");
-    sharesDisabledInput.attr("value", "maximum shares");
-    sharesDisabledInput.attr("id", "disabled");
-    sharesDisabledInput.attr("type", "text");
-    // Add the new input box into the newDiv
-    $(html.sharesID).append(sharesDisabledInput);
-
-    // adding the calculate button
-    //     <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-    //     <i class="material-icons right">send</i>
-    //   </button>
-    // Add a calculate button
-    var calculateButton = $("<button>");
-    calculateButton.addClass("stock-buy-button btn waves-effect waves-light");
-    calculateButton.attr("type", "submit");
-    calculateButton.attr("name", "action");
-    // calculateButton.attr("onclick" , "calculateShares()");
-    calculateButton.append("Calculate");
-    $(html.sharesID).append(calculateButton);
+//     // Create new label for amount to invest
+//     var amountToInvestLabel = $("<label>");
+//     // Set attributes for the label element
+//     amountToInvestLabel.attr("for", "amount-to-invest");
+//     amountToInvestLabel.attr("data-error", "wrong");
+//     amountToInvestLabel.attr("data-success", "right");
+//     amountToInvestLabel.append("Amount to Invest");
+//     // Add the new label into the new input "amountToInvestInput"
+//     $(html.investmentAmountInput).append(amountToInvestLabel);
 
 
-}
+//     // Add a div for storing the amount to invest input 
+//     // Create the commision as a read-only div for reference
+//     var commissionDiv = $("<div>");
+//     commissionDiv.addClass("input-field col s4");
+//     commissionDiv.attr("id", "commission-amount");
+//     // Add the new input box into the newDiv
+//     $(html.stockToolsSpan).append(commissionDiv);
 
-function calculateShares(amountToInvest, price, commission) {
-    // take the amount to invest and minus the commission
-    var netCash = amountToInvest - commission;
-    var totalShares = netCash / price;
-    console.log("Maximum shares:", totalShares);
-}
+//     // Create a new input field for capturing the commission price
+//     var amountToInvestInput = $("<input>");
+//     amountToInvestInput.addClass("validate");
+//     amountToInvestInput.attr("id", "commision-amount");
+//     // Add the new input box into the newDiv
+//     $(html.commissionID).append(amountToInvestInput);
+
+//     // Create new label for commission
+//     var commissionLabel = $("<label>");
+//     // Set attributes for the label element
+//     commissionLabel.attr("for", "commision-amount");
+//     commissionLabel.attr("data-error", "wrong");
+//     commissionLabel.attr("data-success", "right");
+//     commissionLabel.append("Commision");
+//     // Add the new label into the new input "amountToInvestInput"
+//     $(html.commissionID).append(commissionLabel);
+
+//     // Create the symbol as a read-only div for reference
+//     var sharesDiv = $("<div>");
+//     sharesDiv.addClass("input-field col s4");
+//     sharesDiv.attr("id", "shares-read-only");
+//     // Add the new input box into the newDiv
+//     $(html.stockToolsSpan).append(sharesDiv);
+
+//     // Create a new input field for capturing the amount to invest
+//     var sharesDisabledInput = $("<input disabled>");
+//     sharesDisabledInput.addClass("col s4 validate");
+//     sharesDisabledInput.attr("value", "maximum shares");
+//     sharesDisabledInput.attr("id", "disabled");
+//     sharesDisabledInput.attr("type", "text");
+//     // Add the new input box into the newDiv
+//     $(html.sharesID).append(sharesDisabledInput);
+
+//     // adding the calculate button
+//     //     <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+//     //     <i class="material-icons right">send</i>
+//     //   </button>
+//     // Add a calculate button
+//     var calculateButton = $("<button>");
+//     calculateButton.addClass("stock-buy-button btn waves-effect waves-light");
+//     calculateButton.attr("type", "submit");
+//     calculateButton.attr("name", "action");
+//     // calculateButton.attr("onclick" , "calculateShares()");
+//     calculateButton.append("Calculate");
+//     $(html.sharesID).append(calculateButton);
+
+
+// }
+
+// function calculateShares(amountToInvest, price, commission) {
+//     // take the amount to invest and minus the commission
+//     var netCash = amountToInvest - commission;
+//     var totalShares = netCash / price;
+//     console.log("Maximum shares:", totalShares);
+// }
 
 
 
