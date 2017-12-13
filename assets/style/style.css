@@ -3,7 +3,7 @@
 }
 
 #logo{
-    background-image: url('../images/stock-exchange-chart.jpg'); 
+    
     color: white;
     border-radius: 100px;
     padding: 5%;
@@ -13,6 +13,7 @@
 
 .main-display {
     height: 600px;
+    background-image: url('../images/stock-exchange-chart.jpg'); 
 }
 
 .main-display,

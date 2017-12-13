@@ -48,6 +48,23 @@ $(document).ready(function(){
     $('.carousel').duration(3000); //duration
   });
 
+
+
+
+  var startGame = $("#introContainer").on('click', function () {
+    $(this).parent().hide();
+    $('.row').show();
+    countdown(60);
+    questionDisplay();
+});
+
+var questionDisplay = function () {
+    $(".row :not('#sub-but')").empty();
+};
+
+
+
+
 ///////////////////////////////////////////////////
 // Left navbar calculators
 ///////////////////////////////////////////////////
