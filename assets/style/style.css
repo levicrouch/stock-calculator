@@ -11,12 +11,10 @@
     margin-bottom: 5%;
 }
 
-.left-nav,
 .main-display {
     height: 600px;
 }
 
-.left-nav,
 .main-display,
 .news-feed {
     background-color: rgb(14, 176, 226);
