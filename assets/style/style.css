@@ -1,5 +1,6 @@
-
-
+body {
+    margin-bottom: 140px;
+}
 
 #logo{
     
@@ -34,11 +35,6 @@ header {
     float: right;
 }
 
-.main-display {
-    height: 600px;
-    width: 33.333%
-}
-
 .main-display,
 .news-feed {
     background-color: rgb(173, 189, 189);
@@ -49,6 +45,7 @@ header {
     text-align: center;
     position: relative;
 }
+
 .news-feed {
     height: 300px;
     background-color: rgb(14, 176, 226);
@@ -77,4 +74,5 @@ header {
     position: fixed;
     bottom: 0;
     width: 100%;
+    background-color: green;
 }
