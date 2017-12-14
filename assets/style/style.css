@@ -1,5 +1,5 @@
 #logo{
-    background-image: url('../images/stock-exchange-chart.jpg'); 
+    
     color: white;
     border-radius: 100px;
     padding: 5%;
@@ -32,10 +32,12 @@ header {
 
 .main-display {
     height: 600px;
+    width: 33.333%;
 }
 
 .main-display,
 .news-feed {
+<<<<<<< HEAD
     background-color: rgb(14, 176, 226);
     text-align: center;
     position: absolute;
@@ -43,6 +45,10 @@ header {
 .main-display {
     height: 600px;
     width: 900px;
+=======
+    background-color: rgb(173, 189, 189);
+    padding: 15px;
+>>>>>>> 7f852cabca37941152c4ca2388332818061e598e
     border: 2px solid;
     float: left;
     /* background-image: url('../images/borat.jpg');  */
@@ -64,4 +70,11 @@ header {
 }
 .basic-calculator, .stock-buy-calc, .stock-sell-calc{
     display: none;
+}
+.stock-tools {
+    height: 250px;
+}
+.stock-buy-button {
+    left: 200px;
+
 }
