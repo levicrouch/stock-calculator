@@ -8,20 +8,24 @@
     <!-- Adding jquery 3.2.1 reference -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
-    <!-- Adding bootstrap 3.3.7 CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Adding bootstrap 3.3.7 CSS
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
     <!-- Adding our stylesheet -->
     <link rel="stylesheet" href="assets/style/style.css">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="assets/materialize/css/materialize.min.css" media="screen,projection" />
+    <script type="text/javascript" src="assets/materialize/js/materialize.min.js"></script>
+    <!-- Adding our javascript -->
+    <script src="assets/javascript/app.js"></script>
+    <!-- Adding main javascript -->
+    <script src="assets/javascript/main.js"></script>
+
     <title>Stock Calculator</title>
 </head>
 
 <body>
-    <!-- Spencer was here -->
-
     <div class="row">
         <nav>
             <div class="nav-wrapper">
@@ -44,51 +48,27 @@
     <div id="introContainer">
         <div class="row">
             <div class="carousel">
-                <a class="carousel-item" href="#one!">
-                    <img src="assets/images/amazon.png">
-                </a>
-                <a class="carousel-item" href="#two!">
-                    <img class="apple" src="assets/images/apple.png">
-                </a>
-                <a class="carousel-item" href="#three!">
-                    <img class="tesla" src="assets/images/tesla.png">
-                </a>
-                <a class="carousel-item" href="#four!">
-                    <img class="netflix" src="assets/images/netflix.png">
-                </a>
-                <a class="carousel-item" href="#five!">
-                    <img class="jpmorgan" src="assets/images/jpmorgan.png">
-                </a>
-                <a class="carousel-item" href="#six!">
-                    <img class="alphabet" src="assets/images/alphabet.png">
-                </a>
-                <a class="carousel-item" href="#seven!">
-                    <img class="berkshire" src="assets/images/berkshire.png">
-                </a>
-                <a class="carousel-item" href="#eight!">
-                    <img class="microsoft" src="assets/images/microsoft.png">
-                </a>
-                <a class="carousel-item" href="#nine!">
-                    <img class="disney" src="assets/images/disney.png">
-                </a>
-                <a class="carousel-item" href="#ten!">
-                    <img class="johnson" src="assets/images/johnson.png">
+                <img class="carousel-item" id="amazon" src="assets/images/amazon.png">
+                <img class="carousel-item" id="apple" src="assets/images/apple.png">
+                <img class="carousel-item" id="tesla" src="assets/images/tesla.png">
+                <img class="carousel-item" id="netflix" src="assets/images/netflix.png">
+                <img class="carousel-item" id="jpmorgan" src="assets/images/jpmorgan.png">
+                <img class="carousel-item" id="alphabet" src="assets/images/alphabet.png">
+                <img class="carousel-item" id="berkshire" src="assets/images/berkshire.png">
+                <img class="carousel-item" id="microsoft" src="assets/images/microsoft.png">
+                <img class="carousel-item" id="disney" src="assets/images/disney.png">
+                <img class="carousel-item" id="johnson" src="assets/images/johnson.png">
                 </a>
             </div>
-
         </div>
     </div>
-
     <div id="infoContainer">
         <div class="row">
-
-            <div class="column col-sm-12">
-                <div class="main-display">
-
-                    Main Display
-
+            <div class="column col s12">
+                <div class="main-display" data-visibility="hidden">
+                    <span class="main-display">Main Display</span>
                     <br>
-                    <ul class="collapsible z-depth-2 " data-collapsible="expandable" data-visibility="hidden">
+                    <ul class="collapsible z-depth-2 " data-collapsible="expandable" >
                         <li>
                             <div class="collapsible-header z-depth-2">
                                 <i class="material-icons">attach_money</i>Stock Price</div>
@@ -103,37 +83,11 @@
                                 <span id="company-news">Lorem ipsum dolor sit amet.</span>
                             </div>
                         </li>
-
                     </ul>
-                    <div class="row">
-                        <div class="stock-buy-calc col s12" data-visibility="hidden">
-                            Enter a stock symbol to BUY
-                            <div class="input-field inline" data-visibility="hidden">
-                                <input id="stock-symbol" type="stock-symbol" class="validate">
-                                <label for="stock-symbol" data-error="wrong" data-success="right">Stock Symbol</label>
-                            </div>
-                        </div>
-                        <div class="stock-sell-calc col s12" data-visibility="hidden">
-                            Enter a stock symbol to SELL
-                            <div class="input-field inline" data-visibility="hidden">
-                                <input id="stock-symbol" type="stock-symbol" class="validate">
-                                <label for="stock-symbol" data-error="wrong" data-success="right">Stock Symbol</label>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
     </div>
-
-
-    </div>
-
-
-    <script src="assets/javascript/app.js"></script>
-    <script type="text/javascript" src="assets/materialize/js/materialize.min.js"></script>
-
     <!-- TradingView Widget BEGIN -->
     <script src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js">{
             "symbols": [
@@ -162,15 +116,6 @@
         }
     </script>
     <!-- TradingView Widget END -->
-
-    <!-- <div class="news-feed">
-                News Feed
-            </div>
-        </div> -->
-    </div>
-    </div>
-    <script src="assets/javascript/app.js"></script>
-    <script type="text/javascript" src="assets/materialize/js/materialize.min.js"></script>
 </body>
 
 </html>
