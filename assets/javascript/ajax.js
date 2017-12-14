@@ -1,4 +1,3 @@
-
 // var url = ’https://newsapi.org/v2/top-headlines?' +
 // ‘sources=bbc-news&’ +
 // ‘apiKey=e1ffb31d120540ed8e3b56860997fb59’;
@@ -19,15 +18,7 @@ var queryUrl = "https://newsapi.org/v2/top-headlines?" + "sources=bbc-news&" + "
         // for (var i = 0; i < articleCounter; i++) {
         //     // Add to the Article Counter (to make sure we show the right number)
         //     articleCounter++;
-            // var newsFeed = $("#company-news")
-            // .children()
-            // .eq(1)
-            // .children()
-            // .eq(0)
-            // .children();
-            // console.log(newsFeed);
-            // newsFeed.eq(0).text(newsApi.title);
-            $(newsApi).append("#company-news");
+            $().append();
         // }
     });
 // }
@@ -48,4 +39,3 @@ $.ajax({
     console.log(AlphaApi);
     console.log(queryUrl2);
 });
-
