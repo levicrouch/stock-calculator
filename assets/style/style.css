@@ -59,11 +59,13 @@ header {
     font-size: 25px;
     /* position: ; */
 }
-.panel-body {
-   /* position: static; */
-   float: right;
-}
-.basic-calculator, .stock-buy-calc, .stock-sell-calc{
+/* .news-image, .card-horiz, .news-card, .card-stacked{
+    height: 50px;
+} */
+/* Invisible */
+.basic-calculator,
+.stock-buy-calc,
+.stock-sell-calc {
     display: none;
 }
 .stock-tools {

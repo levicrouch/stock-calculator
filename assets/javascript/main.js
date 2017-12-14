@@ -5,7 +5,7 @@
 ///////////////////////////////////////////////////
 // Variables and objects
 ///////////////////////////////////////////////////
-var company = {
+objCompany = {
     name: [
         "Apple", "Microsoft", "Amazon", "Facebook",
         "Google", "Alphabet", "Intel", "Cisco",
@@ -14,7 +14,7 @@ var company = {
         "Paypal", "Adobe", "Charter Communications", "Starbucks",
         "Celgene", "Priceline", "Costco", "Netflix",
         "Walgreens", "Tesla", "JPMorgan", "Berkshire Hathaway",
-        "Johnson & Johnson"
+        "Johnson & Johnson", "Disney"
     ],
     symbol: [
         "AAPL", "MSFT", "AMZN", "FB",
@@ -24,7 +24,7 @@ var company = {
         "PYPL", "ADBE", "CHTR", "SBUX",
         "CELG", "PCLN", "COST", "NFLX",
         "WBA", "TSLA", "JPM", "BRK-A",
-        "JNJ"
+        "JNJ", "DIS"
     ],
     url: [
         "http://investor.apple.com/", "https://www.microsoft.com/en-us/investor/", "http://phx.corporate-ir.net/phoenix.zhtml?c=97664&p=irol-irhome", "https://investor.fb.com/home/default.aspx",
