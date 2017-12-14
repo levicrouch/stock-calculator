@@ -3,7 +3,7 @@ console.log("We are in the javascript");
 // var url = ’https://newsapi.org/v2/top-headlines?' +
 // ‘sources=bbc-news&’ +
 // ‘apiKey=e1ffb31d120540ed8e3b56860997fb59’;
-var title = "stock+news"
+var title = "&title=stock+news"
 // url for financial news API 
 var queryUrl = "https://newsapi.org/v2/top-headlines?" + "sources=bbc-news&" + "apiKey=e1ffb31d120540ed8e3b56860997fb59";
 // variable to count articles that come in
@@ -20,21 +20,24 @@ var queryUrl = "https://newsapi.org/v2/top-headlines?" + "sources=bbc-news&" + "
         // for (var i = 0; i < articleCounter; i++) {
         //     // Add to the Article Counter (to make sure we show the right number)
         //     articleCounter++;
-            var newsFeed = $("news-feed")
-            .children()
-            .eq(1)
-            .children()
-            .eq(0)
-            .children();
-            console.log(newsFeed);
-            newsFeed.eq(0).text(newsApi.title);
+            // var newsFeed = $("#company-news")
+            // .children()
+            // .eq(1)
+            // .children()
+            // .eq(0)
+            // .children();
+            // console.log(newsFeed);
+            // newsFeed.eq(0).text(newsApi.title);
+            $(newsApi).append("#company-news");
         // }
     });
 // }
 // runQuery();
 
 // alpha vantage api
-var symbol = "AAPL";
+
+// $("")
+var symbol = "GOOG";
 var interval = 5;
 var apiKey = "&apikey=Q56IE8OZ9WE75H7P"
 var queryUrl2 = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&" + "symbol=" + symbol + "&" + "interval=" + interval + "min" + apiKey;
@@ -105,23 +108,6 @@ $(document).ready(function(){
     $('.carousel').carousel();
     $('.carousel').duration(3000); //duration
   });
-
-
-
-
-  var startGame = $("#introContainer").on('click', function () {
-    $(this).parent().hide();
-    $('.row').show();
-    countdown(60);
-    questionDisplay();
-});
-
-var questionDisplay = function () {
-    $(".row :not('#sub-but')").empty();
-};
-
-
-
 
 ///////////////////////////////////////////////////
 // Left navbar calculators
