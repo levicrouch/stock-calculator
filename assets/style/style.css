@@ -31,8 +31,9 @@
     font-size: 25px;
     font-weight: "strong"; /* NOT WORKING? */
 }
-
-
+/* .news-image, .card-horiz, .news-card, .card-stacked{
+    height: 50px;
+} */
 /* Invisible */
 .basic-calculator,
 .stock-buy-calc,
