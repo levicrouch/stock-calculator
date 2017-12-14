@@ -90,5 +90,9 @@ $(document).ready(function () {
         // if hidden show the display
         companyName = $(this).attr("id");
         console.log("Company Name:", companyName);
-        mainDisplayToggle();    }
+        getNews(companyName);
+        mainDisplayToggle();
+    }
+
+    
 });
