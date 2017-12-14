@@ -1,7 +1,4 @@
-.nav {
-    color: white;
-    background-color: #4caf50;
-}
+
 
 
 #logo{
@@ -35,10 +32,11 @@ header {
     width: 220px;
     border: 2px solid;
     float: right;
+}
 
 .main-display {
     height: 600px;
-    width: 33.333%;
+    width: 33.333%
 }
 
 .main-display,
@@ -46,7 +44,7 @@ header {
     background-color: rgb(173, 189, 189);
     padding: 15px;
     border: 2px solid;
-    float: left;
+    width: 100%;
     /* background-image: url('../images/borat.jpg');  */
     text-align: center;
     position: relative;
