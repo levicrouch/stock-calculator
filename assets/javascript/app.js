@@ -1,53 +1,4 @@
 
-<<<<<<< HEAD
-///////////////////////////////////////////////////
-// Variables and objects
-///////////////////////////////////////////////////
-var companies = ["Apple: AAPL", "MSFT", "AMZN", "FB",
-    "GOOG", "GOOGL", "INTC", "CSCO",
-    "CMCSA", "AMGN", "NVDA", "AVGO",
-    "GILD", "TXN", "QCOM", "KHC",
-    "PYPL", "ADBE", "CHTR", "SBUX",
-    "CELG", "PCLN", "COST", "NFLX",
-    "WBA"];
-// Apple Inc 
-// Microsoft Corp
-// Amazon
-// Facebook
-// Alphabet Inc C
-// Alphabet Inc A
-// Intel Corp
-// Cisco
-// Comcast 
-// Amgen Inc
-// NVIDIA
-// Broadcom
-// Gilead Sciences
-// Texas Instruments
-// Qualcomm
-// The Kraft
-// Paypal
-// Adobe
-// Charter Communications
-// Starbucks
-// Celgene
-// Priceline
-// Costco
-// Netflix
-// Walgreens
-var html = {
-    basicCalculatorClass: ".basic-calculator",
-    stockBuyCalcClass: ".stock-buy-calc",
-    stockSellCalcClass: ".stock-sell-calc"
-};
-///////////////////////////////////////////////////
-// Functions
-///////////////////////////////////////////////////
-$(document).ready(function(){
-    $('.carousel').carousel();
-    $('.carousel').duration(3000); //duration
-  });
-=======
 // var url = ’https://newsapi.org/v2/top-headlines?' +
 // ‘sources=bbc-news&’ +
 // ‘apiKey=e1ffb31d120540ed8e3b56860997fb59’;
@@ -81,7 +32,6 @@ var queryUrl = "https://newsapi.org/v2/top-headlines?" + "sources=bbc-news&" + "
     });
 // }
 // runQuery();
->>>>>>> 7f852cabca37941152c4ca2388332818061e598e
 
 // alpha vantage api
 
