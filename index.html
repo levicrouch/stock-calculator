@@ -31,17 +31,19 @@
     <!-- Adding ajax javascript -->
     <script src="assets/javascript/ajax.js"></script>
 
+
     <title>Stock Calculator</title>
 </head>
 
 <body>
     <div class="row">
         <nav>
-            <div class="nav-wrapper">
+            <div class="nav-wrapper #f4511e deep-orange darken-1">
                 <a href="#" class="brand-logo">Stocks.com</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li>
-                        <a href="sass.html">Find A Company</a>
+                        <!-- Dropdown Trigger -->
+                        <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Find A Company</a>
                     </li>
                     <li>
                         <a href="badges.html">Educate Yourself</a>
@@ -53,6 +55,21 @@
             </div>
         </nav>
     </div>
+    <ul id='dropdown1' class='dropdown-content'>
+        <li>
+            <div class = "input-field">
+                <i class = "material-icons prefix">mode_edit</i>
+                <textarea id = "input-company-name"></textarea>
+                <label for = "input-company-name">Company Name</label>
+             </div>
+            
+            <!-- <input id="last_name" type="text" class="validate">
+            <label for="last_name">Last Name</label> -->
+            <!-- <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+              </button> -->
+        </li>
+    </ul>
 
     <div id="introContainer">
         <div class="row">
@@ -123,6 +140,7 @@
                     "locale": "en"
             }
         </script>
+
     </footer>
     <!-- TradingView Widget END -->
 
