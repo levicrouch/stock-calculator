@@ -1,3 +1,4 @@
+
 // grab newsarticles on the specified company
 function getNews(company) {
     // hardcode the sources for now. Maybe add an option for the user to select which news sources to use
@@ -29,8 +30,6 @@ function getNews(company) {
         .fail(function (err) {
             throw err;
         });
-
-
 }
 
 function writeNews(image, source, headline) {
@@ -50,6 +49,7 @@ function writeNews(image, source, headline) {
     $(".card-horiz").append(cardImageDiv);
 
     var cardImageSrc = $("<img>");
+    cardImageSrc.addClass("news-image");
     cardImageSrc.attr("src", image);
     $(".card-image").append(cardImageSrc);
 
@@ -80,3 +80,4 @@ $.ajax({
     console.log(AlphaApi);
     console.log(queryUrl2);
 });
+
