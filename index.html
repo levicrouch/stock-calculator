@@ -8,12 +8,6 @@
     <!-- Adding jquery 3.2.1 reference -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
-<<<<<<< HEAD
-    <!-- Adding bootstrap 3.3.7 CSS
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
-=======
-
->>>>>>> e9ac9bfcd6543aa41e3b514f333dce64290c632f
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -21,7 +15,7 @@
     <link type="text/css" rel="stylesheet" href="assets/materialize/css/materialize.min.css" media="screen,projection" />
     <!-- Adding our stylesheet -->
     <link rel="stylesheet" href="assets/style/style.css">
-    <script type="text/javascript" src="assets/materialize/js/materialize.min.js"></script>
+    
 
     <!-- Adding our stylesheet -->
     <link rel="stylesheet" href="assets/style/style.css">
@@ -36,30 +30,34 @@
     <script src="assets/javascript/ajax.js"></script>
 
 
-    <title>Stock Calculator</title>
+    <title>Stocks.com</title>
 </head>
 
 <body>
     <div class="row">
-        <nav>
-            <div class="nav-wrapper #f4511e deep-orange darken-1">
-                <a href="#" class="brand-logo">Stocks.com</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <nav class="white">
+            <div class="nav-wrapper">
+                <a href='#' class="brand-logo red-text">Stock.com</a>
+                <ul class="high-on-med-and-down right">
                     <li>
-                        <!-- Dropdown Trigger -->
-                        <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Find A Company</a>
+                        <div class="center row">
+                            <div class-"col s12">
+                                <div class="row" id="topbarsearch">
+                                    <form method="get" action="/search" id="search">
+                                        <input name="q" type="text" size="40" placeholder="Search.." />
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </li>
-                    <li>
-                        <a href="badges.html">Educate Yourself</a>
-                    </li>
-                    <li>
-                        <a href="collapsible.html">Coming Soon</a>
-                    </li>
+                    <li><a href='%' class="red-text">One</a></li>
+                    <li><a href='%' class="red-text">Two</a></li>
+                    <li><a href='%' class="red-text">Three</a></li>
                 </ul>
             </div>
         </nav>
     </div>
-    <ul id='dropdown1' class='dropdown-content'>
+    <!-- <ul id='dropdown1' class='dropdown-content'>
         <li>
             <div class = "input-field">
                 <i class = "material-icons prefix">mode_edit</i>
@@ -67,13 +65,13 @@
                 <label for = "input-company-name">Company Name</label>
              </div>
             
-            <!-- <input id="last_name" type="text" class="validate">
-            <label for="last_name">Last Name</label> -->
-            <!-- <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <input id="last_name" type="text" class="validate">
+            <label for="last_name">Last Name</label>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
                 <i class="material-icons right">send</i>
-              </button> -->
+              </button>
         </li>
-    </ul>
+    </ul> -->
 
     <div id="introContainer">
         <div class="row">
@@ -117,10 +115,6 @@
 
     <footer class="page-footer footer-fixed">
         <!-- TradingView Widget BEGIN -->
-<<<<<<< HEAD
-
-=======
->>>>>>> e9ac9bfcd6543aa41e3b514f333dce64290c632f
         <script src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js">
             {
                 "symbols": [
@@ -148,15 +142,9 @@
                     "locale": "en"
             }
         </script>
-<<<<<<< HEAD
-
-        <!-- TradingView Widget END -->
-    </footer>
-=======
     </footer>
     <!-- TradingView Widget END -->
-
->>>>>>> e9ac9bfcd6543aa41e3b514f333dce64290c632f
+    <script type="text/javascript" src="assets/materialize/js/materialize.min.js"></script>
 </body>
 
 </html>
