@@ -46,3 +46,10 @@
     left: 200px;
 
 }
+
+.page-footer,
+.footer-fixed {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
