@@ -93,5 +93,24 @@ $(document).ready(function () {
         getNews(companyName);
         mainDisplayToggle();
     }
+<<<<<<< HEAD
     
+=======
+
+    // Make window go to bottom of collapsible content being opened
+    $('.collapsible').collapsible({
+        accordion: false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    });
+    $('.collapsible .collapsible-header').on('click', function (event) {
+        var target = $(this);
+        setTimeout(function () {
+            if (target.length) {
+                event.preventDefault();
+                $('html, body').animate({
+                    scrollTop: target.offset().top
+                }, 500);
+            }
+        }, 300);
+    });
+>>>>>>> e9ac9bfcd6543aa41e3b514f333dce64290c632f
 });

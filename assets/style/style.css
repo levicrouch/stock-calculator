@@ -1,5 +1,5 @@
-.container {
-    background-color: gray;
+body {
+    margin-bottom: 140px;
 }
 
 #logo{
@@ -11,11 +11,6 @@
     margin-bottom: 5%;
 }
 
-.main-display {
-    height: 600px;
-    width: 33.333%;
-}
-
 .main-display,
 .news-feed {
     background-color: rgb(173, 189, 189);
@@ -24,6 +19,10 @@
     width: 100%;
     text-align: center;
 }
+
+/* .main-display {
+    height: 600px;
+} */
 
 .news-feed {
     height: 300px;
@@ -46,4 +45,12 @@
 .stock-buy-button {
     left: 200px;
 
+}
+
+.page-footer,
+.footer-fixed {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: green;
 }

@@ -37,7 +37,7 @@ function writeNews(image, source, headline) {
     // create a new div
 
     var sizeDiv = $("<div>");
-    sizeDiv.addClass("news-card col s6 m4");
+    sizeDiv.addClass("news-card col s6 m5");
     $(".company-news").append(sizeDiv);
 
     var cardDiv = $("<div>");
