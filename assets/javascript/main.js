@@ -93,9 +93,6 @@ $(document).ready(function () {
         getNews(companyName);
         mainDisplayToggle();
     }
-<<<<<<< HEAD
-    
-=======
 
     // Make window go to bottom of collapsible content being opened
     $('.collapsible').collapsible({
@@ -112,5 +109,4 @@ $(document).ready(function () {
             }
         }, 300);
     });
->>>>>>> e9ac9bfcd6543aa41e3b514f333dce64290c632f
 });
