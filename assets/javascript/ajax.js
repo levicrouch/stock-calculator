@@ -1,27 +1,68 @@
-// var url = ’https://newsapi.org/v2/top-headlines?' +
-// ‘sources=bbc-news&’ +
-// ‘apiKey=e1ffb31d120540ed8e3b56860997fb59’;
-var title = "&title=stock+news"
-// url for financial news API 
-var queryUrl = "https://newsapi.org/v2/top-headlines?" + "sources=bbc-news&" + "apiKey=e1ffb31d120540ed8e3b56860997fb59";
-// variable to count articles that come in
-// var articleCounter = 0;
-// function to show number of articles and the final URL to download data from
-// function runQuery(articleCounter, queryURL) {
-    // ajax intialization
+// grab newsarticles on the specified company
+function getNews(company) {
+    // hardcode the sources for now. Maybe add an option for the user to select which news sources to use
+    var source = "bloomberg";
+    var source = source + "&";
+    var company = company + "&";
+
+    console.log("in getNews function");
+    var queryUrl = "https://newsapi.org/v2/everything?" +
+        "q=" + company +
+        "sources=" + source +
+        "apiKey=e1ffb31d120540ed8e3b56860997fb59";
+    console.log("queryUrl", queryUrl);
     $.ajax({
         url: queryUrl,
         method: "GET"
-    }).done(function (newsApi) {
-        console.log(newsApi);
-        // Loop through and provide the correct number of articles
-        // for (var i = 0; i < articleCounter; i++) {
-        //     // Add to the Article Counter (to make sure we show the right number)
-        //     articleCounter++;
-            $().append();
-        // }
-    });
-// }
+    }).done(function (data) {
+        console.log(data);
+        // clear out old articles
+        $(".company-news").empty();
+        // Grab top 10 articles data points
+        for (i = 0; i < 1; i++) {
+            var headline = data.articles[i].title;
+            var source = data.articles[i].source.name;
+            var urlToImage = data.articles[i].urlToImage;
+            writeNews(urlToImage, source, headline);
+        }
+    })
+        .fail(function (err) {
+            throw err;
+        });
+
+
+}
+
+function writeNews(image, source, headline) {
+    console.log("in writeNews function");
+    // create a new div
+
+    var sizeDiv = $("<div>");
+    sizeDiv.addClass("news-card col s12 m7");
+    $(".company-news").append(sizeDiv);
+
+    var cardDiv = $("<div>");
+    cardDiv.addClass("card-horiz card horizontal");
+    $(".news-card").append(cardDiv);
+
+    var cardImageDiv = $("<div>");
+    cardImageDiv.addClass("card-image");
+    $(".card-horiz").append(cardImageDiv);
+
+    var cardImageSrc = $("<img>");
+    cardImageSrc.attr("src", image);
+    $(".card-image").append(cardImageSrc);
+
+    var cardStackedDiv = $("<div>");
+    cardStackedDiv.addClass("card-stacked");
+    $(".card-horiz").append(cardStackedDiv);
+
+    var cardContentDiv = $("<div>");
+    cardContentDiv.addClass("card-content");
+    cardContentDiv.html("<p>" + headline + "</p>");
+    $(".card-stacked").append(cardContentDiv);
+
+}
 // runQuery();
 
 // alpha vantage api
