@@ -21,10 +21,14 @@ function getNews(company) {
         $(".company-news").empty();
         // Grab top 10 articles data points
         for (i = 0; i < 1; i++) {
+            // var newsDiv = $("div class='news-div'>");
+
             var headline = data.articles[i].title;
             var source = data.articles[i].source.name;
             var urlToImage = data.articles[i].urlToImage;
             writeNews(urlToImage, source, headline);
+        
+            // newsDiv.append($("<div class='caption'>").text(headline + "<br>" + sourc))
         }
     })
         .fail(function (err) {
@@ -35,13 +39,14 @@ function getNews(company) {
 function writeNews(image, source, headline) {
     console.log("in writeNews function");
     // create a new div
+    var masterDiv
 
     var sizeDiv = $("<div>");
     sizeDiv.addClass("news-card col s6 m5");
     $(".company-news").append(sizeDiv);
 
     var cardDiv = $("<div>");
-    cardDiv.addClass("card-horiz card horizontal");
+    cardDiv.addClass("card-horiz card horizontal col s6 m9");
     $(".news-card").append(cardDiv);
 
     var cardImageDiv = $("<div>");
