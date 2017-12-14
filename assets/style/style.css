@@ -55,11 +55,9 @@ header {
     font-size: 25px;
     /* position: ; */
 }
-.panel-body {
-   /* position: static; */
-   float: right;
-}
-.basic-calculator, .stock-buy-calc, .stock-sell-calc{
+.basic-calculator,
+.stock-buy-calc,
+.stock-sell-calc {
     display: none;
 }
 .stock-tools {
