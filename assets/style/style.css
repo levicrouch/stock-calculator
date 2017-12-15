@@ -89,20 +89,47 @@ header {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: green;
+    background-color: rgb(241, 241, 241);
+}
+.company-news{
+    height: 3125px;
+    
 }
 .news-image{
     height: auto;
     float: left;
+    padding-right: 15px; 
+    height: 200px;
+    max-width: 300px;
+
 }
+.card-image{
+    width: 300px;
+    
+    padding-top: 15px;
+    padding-left: 40px;
+    padding-right: 30px;
+    
+}
+.card-stacked {
+    width: 800px;
+    
+    
+}
+/* .card-horiz {
+    height: 250px;
+} */
+/* .card-content{
+    width: 800px;
+}
+.card-action{
+    width: 800px;
+} */
 .news-feed-icon, .headline-title {
     float: left;
     margin-right: 20px;
 }
-.company-news {
-    height: 550px;
-    position: relative;
-}
+
 .news-feed {
     height: 50px;
     background-color: white;
