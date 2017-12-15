@@ -1,3 +1,5 @@
+https://stream.tradier.com/v1/markets/quotes?symbols=SPY
+
 //////////////////////////////////////////////
 // Main JavaScript 
 //////////////////////////////////////////////
@@ -42,15 +44,23 @@ $(document).ready(function () {
     function mainDisplayToggle() {
         console.log("we are in the mainDisplayToggle");
         // Check if the main display is shown or not
-        var currentVisibility = $(".main-display").attr("data-visibility");
-        if (currentVisibility === "hidden") {
+        var currentMainDisplayVisibility = $(".main-display").attr("data-visibility");
+        var currentCarouselVisibility = $(".carousel").attr("data-visibility");
+        if (currentMainDisplayVisibility === "hidden") {
             // if hidden, show the main window
+            // $('.carousel').fadeOut(500);
             $(".main-display").attr("data-visibility", "visible");
+            $(".carousel").attr("data-visibility", "hidden");
             $(".main-display").show();
-        } else if (currentVisibility === "visible") {
+            $('.carousel').fadeOut(500);
+            // $(".carousel").hide();
+        } else if (currentMainDisplayVisibility === "visible") {
             // if visible hide the main display
             $(".main-display").attr("data-visibility", "hidden");
+            $(".carousel").attr("data-visibility", "visible");
             $(".main-display").hide();
+            // $(".carousel").show();
+            $('.carousel').fadeIn(500);
         }
     }
 

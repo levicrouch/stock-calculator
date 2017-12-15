@@ -1,3 +1,4 @@
+var matCard = true;
 objCompany = {
     name: [
         "Apple", "Microsoft", "Amazon", "Facebook",
@@ -100,9 +101,6 @@ function writeNews(image, source, headline, url) {
         cardContentDiv.html("<h5>" + headline + "</h5>");
         cardStackedDiv.append(cardContentDiv);
 
-        //     <div class="card-action">
-        //     <a href="#">This is a link</a>
-        //   </div>
         var cardActionDiv = $("<div>");
         cardActionDiv.addClass("card-action");
         cardActionDiv.html("<a target='_blank' href=" + url + "'>Link to article</a>");
@@ -125,7 +123,7 @@ function writeNews(image, source, headline, url) {
 
         var articleLink = $("<div>");
         articleLink.addClass("link-article");
-        articleLink.html("<a class='link-to-article' target='_blank' href=" + url + "'>Link to article</a>");
+        articleLink.html("<a class='link-to-article' target='_blank' href=" + url + ">Link to article</a>");
         colDiv.append(articleLink);
     }
 
