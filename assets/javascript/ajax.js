@@ -75,6 +75,7 @@ function writeNews(image, source, headline, url) {
     if (matCard) {
         // create a new div
         var sizeDiv = $("<div>");
+
         sizeDiv.addClass("news-card col s6 m12");
         $(".company-news").append(sizeDiv);
 
