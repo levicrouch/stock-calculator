@@ -75,11 +75,12 @@ function writeNews(image, source, headline, url) {
     if (matCard) {
         // create a new div
         var sizeDiv = $("<div>");
-        sizeDiv.addClass("news-card col s8 m12 l12");
+
+        sizeDiv.addClass("news-card col s6 m12");
         $(".company-news").append(sizeDiv);
 
         var cardDiv = $("<div>");
-        cardDiv.addClass("card-horiz card horizontal col s8 m12");
+        cardDiv.addClass("card-horiz card horizontal col s6 m12");
         sizeDiv.append(cardDiv)
 
         var rowDiv = $("<div>");
