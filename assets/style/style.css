@@ -1,5 +1,5 @@
-.container {
-    background-color: gray;
+body {
+    margin-bottom: 140px;
 }
 
 #logo{
@@ -9,11 +9,30 @@
     padding: 5%;
     margin-top: 5%;
     margin-bottom: 5%;
+    height: 100%;
+  }
+h1{
+    font-size: 50px;
+}
+header {
+    height: 150px;
+    background-color: rgb(14, 176, 226);
+    text-align: center;
+}
+.container {
+    background-color: gray;
+    left: 100px;
+    right: 100px;
+    float: center;
+    /* position: fixed; */
 }
 
-.main-display {
+
+.left-nav {
     height: 600px;
-    width: 33.333%;
+    width: 220px;
+    border: 2px solid;
+    float: right;
 }
 
 .main-display,
@@ -22,18 +41,20 @@
     padding: 15px;
     border: 2px solid;
     width: 100%;
+    /* background-image: url('../images/borat.jpg');  */
     text-align: center;
+    position: relative;
 }
 
 .news-feed {
     height: 300px;
+    background-color: rgb(14, 176, 226);
     clear: both; 
+    text-align: center;
+    text-decoration: bold;
     font-size: 25px;
-    font-weight: "strong"; /* NOT WORKING? */
+    /* position: ; */
 }
-
-
-/* Invisible */
 .basic-calculator,
 .stock-buy-calc,
 .stock-sell-calc {
@@ -45,4 +66,11 @@
 .stock-buy-button {
     left: 200px;
 
+}
+.page-footer,
+.footer-fixed {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: green;
 }

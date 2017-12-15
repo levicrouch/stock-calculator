@@ -8,22 +8,30 @@
     <!-- Adding jquery 3.2.1 reference -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
+
     <!-- Adding bootstrap 3.3.7 CSS
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
-    <!-- Adding our stylesheet -->
-    <link rel="stylesheet" href="assets/style/style.css">
+
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="assets/materialize/css/materialize.min.css" media="screen,projection" />
+    <!-- Adding our stylesheet -->
+    <link rel="stylesheet" href="assets/style/style.css">
     <script type="text/javascript" src="assets/materialize/js/materialize.min.js"></script>
+
+    <!-- Adding our stylesheet -->
+    <link rel="stylesheet" href="assets/style/style.css">
+
     <!-- Adding our javascript -->
     <!-- <script src="assets/javascript/app.js"></script> -->
+    
     <!-- Adding main javascript -->
     <script src="assets/javascript/main.js"></script>
-    <script>var myFunctionTag = false;</script>
     <!-- Adding ajax javascript -->
     <script src="assets/javascript/ajax.js"></script>
+
 
     <title>Stock Calculator</title>
 </head>
@@ -31,11 +39,12 @@
 <body>
     <div class="row">
         <nav>
-            <div class="nav-wrapper">
+            <div class="nav-wrapper #f4511e deep-orange darken-1">
                 <a href="#" class="brand-logo">Stocks.com</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li>
-                        <a href="sass.html">Find A Company</a>
+                        <!-- Dropdown Trigger -->
+                        <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Find A Company</a>
                     </li>
                     <li>
                         <a href="badges.html">Educate Yourself</a>
@@ -47,6 +56,21 @@
             </div>
         </nav>
     </div>
+    <ul id='dropdown1' class='dropdown-content'>
+        <li>
+            <div class = "input-field">
+                <i class = "material-icons prefix">mode_edit</i>
+                <textarea id = "input-company-name"></textarea>
+                <label for = "input-company-name">Company Name</label>
+             </div>
+            
+            <!-- <input id="last_name" type="text" class="validate">
+            <label for="last_name">Last Name</label> -->
+            <!-- <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+              </button> -->
+        </li>
+    </ul>
     <div id="introContainer">
         <div class="row">
             <div class="carousel">
@@ -64,18 +88,16 @@
             </div>
         </div>
     </div>
+
     <div id="infoContainer">
         <div class="row">
             <div class="column col s12">
                 <div class="main-display" data-visibility="hidden">
-                    <span class="main-display">Main Display</span>
-                    <br>
                     <ul class="collapsible z-depth-2 " data-collapsible="expandable">
                         <li>
                             <div class="collapsible-header z-depth-2">
                                 <i class="material-icons">attach_money</i>Stock Price</div>
                             <div class="collapsible-body stock-price">
-                                <span id="stock-price"></span>
                             </div>
                         </li>
                         <li>
@@ -88,35 +110,40 @@
             </div>
         </div>
     </div>
-    <!-- TradingView Widget BEGIN -->
-    <script src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js">
-        {
-            "symbols": [
-                {
-                    "proName": "INDEX:SPX",
-                    "title": "S&P 500"
-                },
-                {
-                    "proName": "INDEX:IUXX",
-                    "title": "Nasdaq 100"
-                },
-                {
-                    "proName": "FX_IDC:EURUSD",
-                    "title": "EUR/USD"
-                },
-                {
-                    "proName": "NYMEX:CL1!",
-                    "title": "Crude Oil"
-                },
-                {
-                    "proName": "FX_IDC:XAUUSD",
-                    "title": "Gold"
-                }
-            ],
-                "locale": "en"
-        }
-    </script>
+
+    <footer class="page-footer footer-fixed">
+        <!-- TradingView Widget BEGIN -->
+        <script src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js">
+            {
+                "symbols": [
+                    {
+                        "proName": "INDEX:SPX",
+                        "title": "S&P 500"
+                    },
+                    {
+                        "proName": "INDEX:IUXX",
+                        "title": "Nasdaq 100"
+                    },
+                    {
+                        "proName": "FX_IDC:EURUSD",
+                        "title": "EUR/USD"
+                    },
+                    {
+                        "proName": "NYMEX:CL1!",
+                        "title": "Crude Oil"
+                    },
+                    {
+                        "proName": "FX_IDC:XAUUSD",
+                        "title": "Gold"
+                    }
+                ],
+                    "locale": "en"
+            }
+        </script>
+
+    </footer>
     <!-- TradingView Widget END -->
+
 </body>
 
 </html>
