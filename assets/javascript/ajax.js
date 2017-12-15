@@ -75,26 +75,31 @@ function writeNews(image, source, headline, url) {
     if (matCard) {
         // create a new div
         var sizeDiv = $("<div>");
-        sizeDiv.addClass("news-card col s6 m5");
+
+        sizeDiv.addClass("news-card col s6 m12");
         $(".company-news").append(sizeDiv);
 
         var cardDiv = $("<div>");
-        cardDiv.addClass("card-horiz card horizontal col s6 m9");
+        cardDiv.addClass("card-horiz card horizontal col s6 m12");
         sizeDiv.append(cardDiv)
+
+        var rowDiv = $("<div>");
+        rowDiv.addClass("row");
+        cardDiv.append(rowDiv);
 
 
         var cardImageDiv = $("<div>");
         cardImageDiv.addClass("card-image");
-        cardDiv.append(cardImageDiv);
+        rowDiv.append(cardImageDiv);
 
         var cardImageSrc = $("<img>");
         cardImageSrc.addClass("news-image");
         cardImageSrc.attr("src", image);
-        cardImageDiv.append(cardImageSrc);
+        rowDiv.append(cardImageSrc);
 
         var cardStackedDiv = $("<div>");
         cardStackedDiv.addClass("card-stacked");
-        cardImageDiv.append(cardStackedDiv);
+        rowDiv.append(cardStackedDiv);
 
         var cardContentDiv = $("<div>");
         cardContentDiv.addClass("card-content");
@@ -145,15 +150,16 @@ function getStock(company) {
     // var symbol = "AMZN";
     var interval = 5;
     var apiKey = "&apikey=Q56IE8OZ9WE75H7P"
-    var queryUrl2 = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&" + "symbol=" + symbol + "&" + "interval=" + interval + "min" + apiKey;
+    var queryUrl2 = "https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&" + "symbol=" + symbol + "&" + "interval=" + interval + "min" + apiKey + "&datatype=json";
 
     $.ajax({
         url: queryUrl2,
         method: "GET"
     }).done(function (alphaApi) {
         console.log(alphaApi);
+        console.log(alphaApi['Monthly Adjusted Time Series']['2017-12-15']);
         console.log(queryUrl2);
-
+        
         $(".stock-price").empty();
 
         // for (i = 0; i < 1; i++) {
@@ -163,9 +169,8 @@ function getStock(company) {
         //     writeStock(urlToImage, source, headline);
         // }
         var headline = ["Meta Data"]["2. Symbol"];
-        console.log(headline);
+        // console.log(headline);
     });
-
 
 }
 
@@ -199,3 +204,4 @@ function writeStock(image, source, headline) {
     cardStockContentDiv.html("<p>" + headline + "</p>");
     $(".stock-card-stacked").append(cardStockContentDiv);
 }
+console.log(['Meta Data'].lastIndexOf(['Monthly Adjusted Time Series']));
