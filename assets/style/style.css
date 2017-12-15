@@ -89,14 +89,60 @@ header {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: green;
+    background-color: rgb(241, 241, 241);
 }
 .company-news{
-    padding-bottom: 1000px;
+    height: 3125px;
     
 }
+.news-image{
+    height: auto;
+    float: left;
+    padding-right: 15px; 
+    height: 200px;
+    max-width: 300px;
 
+}
+.card-image{
+    width: 300px;
+    
+    padding-top: 15px;
+    padding-left: 40px;
+    padding-right: 30px;
+    
+}
+.card-stacked {
+    width: 800px;
+    
+    
+}
+/* .card-horiz {
+    height: 250px;
+} */
+/* .card-content{
+    width: 800px;
+}
+.card-action{
+    width: 800px;
+} */
+.news-feed-icon, .headline-title {
+    float: left;
+    margin-right: 20px;
+}
 
+.news-feed {
+    height: 50px;
+    background-color: white;
+    /* position: absolute; */
+    display: inline-block;
+}
+.headline-title {
+    height: -webkit-fill-available;
+}
+.link-to-article {
+    /* right: 20px; */
+    float: right;
+}
 #search {
     
  }
