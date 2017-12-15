@@ -1,10 +1,7 @@
-.container {
-    background-color: gray;
+body {
+    margin-bottom: 140px;
+}
 
-}
-nav {
-    background-color: green;
-}
 #logo{
     
     color: white;
@@ -12,30 +9,68 @@ nav {
     padding: 5%;
     margin-top: 5%;
     margin-bottom: 5%;
+    height: 100%;
+  }
+h1{
+    font-size: 50px;
+}
+header {
+    height: 150px;
+    background-color: rgb(14, 176, 226);
+    text-align: center;
+}
+.container {
+    background-color: gray;
+    left: 100px;
+    right: 100px;
+    float: center;
+    /* position: fixed; */
 }
 
-.main-display {
+
+.left-nav {
     height: 600px;
-    width: 33.333%;
+    width: 220px;
+    border: 2px solid;
+    float: right;
+}
+.main-display{
+    width: 100%;
+    padding: 15px;
+    text-align: center;
 }
 
-.main-display,
+
 .news-feed {
     background-color: rgb(173, 189, 189);
     padding: 15px;
     border: 2px solid;
     width: 100%;
+    /* background-image: url('../images/borat.jpg');  */
     text-align: center;
+    position: relative;
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
 }
+
+/* .main-display {
+    height: 600px;
+} */
 
 .news-feed {
     height: 300px;
+    background-color: rgb(14, 176, 226);
     clear: both; 
+    text-align: center;
+    text-decoration: bold;
     font-size: 25px;
-    font-weight: "strong"; /* NOT WORKING? */
+    /* position: ; */
 }
-
-
+/* .news-image, .card-horiz, .news-card, .card-stacked{
+    height: 50px;
+} */
 /* Invisible */
 .basic-calculator,
 .stock-buy-calc,
@@ -49,3 +84,39 @@ nav {
     left: 200px;
 
 }
+.page-footer,
+.footer-fixed {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: green;
+}
+
+
+#search {
+    
+ }
+ 
+ #search input[type="text"] {
+    background: url(search-white.png) no-repeat 10px 6px #fcfcfc ;
+    border: 1px solid #d1d1d1 ;
+    font: bold 12px Arial,Helvetica,Sans-serif;
+    color: #bebebe ;
+    width: 150px;
+    padding: 6px 15px 6px 35px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
+    }
+ 
+ #search input[type="text"]:focus {
+    width: 200px;
+ }
