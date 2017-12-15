@@ -53,57 +53,83 @@ function getNews(company) {
         // clear out old articles
         $(".company-news").empty();
         // Grab top 10 articles data points
-        for (i = 0; i < 1; i++) {
+        for (i = 0; i < 10; i++) {
             // var newsDiv = $("div class='news-div'>");
 
             var headline = data.articles[i].title;
             var source = data.articles[i].source.name;
             var urlToImage = data.articles[i].urlToImage;
-            writeNews(urlToImage, source, headline);
-        
-            // newsDiv.append($("<div class='caption'>").text(headline + "<br>" + sourc))
+            var storyUrl = data.articles[i].url
+            writeNews(urlToImage, source, headline, storyUrl);
         }
+
     })
         .fail(function (err) {
             throw err;
         });
 }
 
-function writeNews(image, source, headline) {
+function writeNews(image, source, headline, url) {
     console.log("in writeNews function");
-    // create a new div
-    var masterDiv
+    if (matCard) {
+        // create a new div
+        var sizeDiv = $("<div>");
+        sizeDiv.addClass("news-card col s6 m5");
+        $(".company-news").append(sizeDiv);
 
-    var sizeDiv = $("<div>");
-    sizeDiv.addClass("news-card col s6 m5");
-    $(".company-news").append(sizeDiv);
+        var cardDiv = $("<div>");
+        cardDiv.addClass("card-horiz card horizontal col s6 m9");
+        sizeDiv.append(cardDiv)
 
-    var cardDiv = $("<div>");
-    cardDiv.addClass("card-horiz card horizontal col s6 m9");
-    $(".news-card").append(cardDiv);
 
-    var cardImageDiv = $("<div>");
-    cardImageDiv.addClass("card-image");
-    $(".card-horiz").append(cardImageDiv);
+        var cardImageDiv = $("<div>");
+        cardImageDiv.addClass("card-image");
+        cardDiv.append(cardImageDiv);
 
-    var cardImageSrc = $("<img>");
-    cardImageSrc.addClass("news-image");
-    cardImageSrc.attr("src", image);
-    $(".card-image").append(cardImageSrc);
+        var cardImageSrc = $("<img>");
+        cardImageSrc.addClass("news-image");
+        cardImageSrc.attr("src", image);
+        cardImageDiv.append(cardImageSrc);
 
-    var cardStackedDiv = $("<div>");
-    cardStackedDiv.addClass("card-stacked");
-    $(".card-horiz").append(cardStackedDiv);
+        var cardStackedDiv = $("<div>");
+        cardStackedDiv.addClass("card-stacked");
+        cardImageDiv.append(cardStackedDiv);
 
-    var cardContentDiv = $("<div>");
-    cardContentDiv.addClass("card-content");
-    cardContentDiv.html("<p>" + headline + "</p>");
-    $(".card-stacked").append(cardContentDiv);
+        var cardContentDiv = $("<div>");
+        cardContentDiv.addClass("card-content");
+        cardContentDiv.html("<h5>" + headline + "</h5>");
+        cardStackedDiv.append(cardContentDiv);
+
+        //     <div class="card-action">
+        //     <a href="#">This is a link</a>
+        //   </div>
+        var cardActionDiv = $("<div>");
+        cardActionDiv.addClass("card-action");
+        cardActionDiv.html("<a target='_blank' href=" + url + "'>Link to article</a>");
+        cardStackedDiv.append(cardActionDiv);
+    }else{
+        // create a new div
+        var colDiv = $("<div>");
+        colDiv.addClass("news-feed col-s5");
+        $(".company-news").append(colDiv);
+
+        var materializeIcon = $("<i>");
+        materializeIcon.addClass("news-feed-icon small material-icons col-s1");
+        materializeIcon.text("business");
+        colDiv.append(materializeIcon);
+        
+        var headlineContent = $("<h6>");
+        headlineContent.addClass("headline-title col-s6");
+        headlineContent.text(headline);
+        colDiv.append(headlineContent);
+
+        var articleLink = $("<div>");
+        articleLink.addClass("link-article");
+        articleLink.html("<a class='link-to-article' target='_blank' href=" + url + "'>Link to article</a>");
+        colDiv.append(articleLink);
+    }
 
 }
-// runQuery();
-
-// alpha vantage api
 
 // $("")
 function getStock(company) {
