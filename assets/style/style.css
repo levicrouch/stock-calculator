@@ -1,7 +1,10 @@
 .container {
     background-color: gray;
-}
 
+}
+nav {
+    background-color: green;
+}
 #logo{
     
     color: white;
