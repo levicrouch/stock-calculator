@@ -1,3 +1,36 @@
+objCompany = {
+    name: [
+        "Apple", "Microsoft", "Amazon", "Facebook",
+        "Google", "Alphabet", "Intel", "Cisco",
+        "Comcast", "Amgen", "Nvidia", "Broadcom",
+        "Gilead Sciences", "Texas Instruments", "Qualcomm", "Kraft Heinz",
+        "Paypal", "Adobe", "Charter Communications", "Starbucks",
+        "Celgene", "Priceline", "Costco", "Netflix",
+        "Walgreens", "Tesla", "JPMorgan", "Berkshire Hathaway",
+        "Johnson & Johnson"
+    ],
+    symbol: [
+        "AAPL", "MSFT", "AMZN", "FB",
+        "GOOG", "GOOGL", "INTC", "CSCO",
+        "CMCSA", "AMGN", "NVDA", "AVGO",
+        "GILD", "TXN", "QCOM", "KHC",
+        "PYPL", "ADBE", "CHTR", "SBUX",
+        "CELG", "PCLN", "COST", "NFLX",
+        "WBA", "TSLA", "JPM", "BRK-A",
+        "JNJ"
+    ],
+    url: [
+        "http://investor.apple.com/", "https://www.microsoft.com/en-us/investor/", "http://phx.corporate-ir.net/phoenix.zhtml?c=97664&p=irol-irhome", "https://investor.fb.com/home/default.aspx",
+        "https://abc.xyz/investor/", "https://abc.xyz/investor/", "https://www.intc.com/investor-relations/default.aspx", "https://investor.cisco.com/investor-relations/overview/default.aspx",
+        "http://www.cmcsa.com/", "http://investors.amgen.com/", "http://investor.nvidia.com/home/default.aspx", "http://investors.broadcom.com",
+        "http://investors.gilead.com", "http://www.ti.com/corp/docs/investor_relations/index.html", "https://www.qualcomm.com/info/investor-relations", "http://ir.kraftheinzcompany.com/",
+        "https://investor.paypal-corp.com/", "http://www.adobe.com/investor-relations.html", "http://ir.charter.com", "https://investor.starbucks.com",
+        "http://ir.celgene.com/", "http://ir.pricelinegroup.com/", "http://phx.corporate-ir.net/phoenix.zhtml?c=83830&p=irol-irhome", "https://ir.netflix.com/",
+        "http://investor.walgreensbootsalliance.com/", "http://ir.tesla.com/", "https://www.jpmorganchase.com/corporate/investor-relations/investor-relations.htm", "http://www.berkshirehathaway.com/reports.html",
+        "http://www.investor.jnj.com"
+    ]
+}
+console.log(objCompany);
 // grab newsarticles on the specified company
 function getNews(company) {
     // hardcode the sources for now. Maybe add an option for the user to select which news sources to use
@@ -68,15 +101,74 @@ function writeNews(image, source, headline) {
 // alpha vantage api
 
 // $("")
-var symbol = "GOOG";
-var interval = 5;
-var apiKey = "&apikey=Q56IE8OZ9WE75H7P"
-var queryUrl2 = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&" + "symbol=" + symbol + "&" + "interval=" + interval + "min" + apiKey;
 
-$.ajax({
-    url: queryUrl2,
-    method: "GET"
-}).done(function (AlphaApi) {
-    console.log(AlphaApi);
-    console.log(queryUrl2);
-});
+function getStock(company) {
+    company = company.toLowerCase();
+
+    // console.log(objCompany.symbol[2]);
+    for (i = 0; i < objCompany.name.length; i++) {
+        objCompany.name[i] = objCompany.name[i].toLowerCase();
+        console.log(objCompany.name[i]);
+        if (company === objCompany.name[i]) {
+            symbol = objCompany.symbol[i];
+            // console.log("symbol" + symbol);
+        }
+    }
+    // var symbol = "AMZN";
+    var interval = 5;
+    var apiKey = "&apikey=Q56IE8OZ9WE75H7P"
+    var queryUrl2 = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&" + "symbol=" + symbol + "&" + "interval=" + interval + "min" + apiKey;
+
+    $.ajax({
+        url: queryUrl2,
+        method: "GET"
+    }).done(function (alphaApi) {
+        console.log(alphaApi);
+        console.log(queryUrl2);
+
+        $(".stock-price").empty();
+
+        // for (i = 0; i < 1; i++) {
+        //     var headline = data.articles[i].title;
+        //     var source = data.articles[i].source.name;
+        //     var urlToImage = data.articles[i].urlToImage;
+        //     writeStock(urlToImage, source, headline);
+        // }
+        var headline = ["Meta Data"]["2. Symbol"];
+        console.log(headline);
+    });
+
+
+}
+
+// getStock();
+
+function writeStock(image, source, headline) {
+    console.log("in writesStock function");
+    // create a new div
+
+    var sizeStockDiv = $("<div>");
+    sizeStockDiv.addClass("stock-card col s12 m7");
+    $(".stock-price").append(sizeStockDiv);
+
+    var cardStockDiv = $("<div>");
+    cardStockDiv.addClass("stock-card-horiz card horizontal");
+    $(".stock-card").append(cardStockDiv);
+
+    // var cardStockImageDiv = $("<div>");
+    // cardStockImageDiv.addClass("stack-card-image");
+    // $(".stock-card-horiz").append(cardStockImageDiv);
+
+    // var cardStockImageSrc = $("<img>");
+    // cardStockImageSrc.attr("src", image);
+    // $(".stock-card-image").append(cardStockImageSrc);
+
+    var cardStockStackedDiv = $("<div>");
+    cardStockStackedDiv.addClass("stock-card-stacked");
+    $(".stock-card-horiz").append(cardStockStackedDiv);
+
+    var cardStockContentDiv = $("<div>");
+    cardStockContentDiv.addClass("stock-card-content");
+    cardStockContentDiv.html("<p>" + headline + "</p>");
+    $(".stock-card-stacked").append(cardStockContentDiv);
+}

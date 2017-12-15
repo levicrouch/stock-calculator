@@ -5,7 +5,7 @@
 ///////////////////////////////////////////////////
 // Variables and objects
 ///////////////////////////////////////////////////
-var company = {
+company = {
     name: [
         "Apple", "Microsoft", "Amazon", "Facebook",
         "Google", "Alphabet", "Intel", "Cisco",
@@ -86,10 +86,12 @@ $(document).ready(function () {
         }
     }
 
+    
     function populateCompanyData() {
         // if hidden show the display
         companyName = $(this).attr("id");
         console.log("Company Name:", companyName);
+        getStock(companyName);
         getNews(companyName);
         mainDisplayToggle();
     }
