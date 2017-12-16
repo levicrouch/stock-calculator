@@ -56,11 +56,13 @@ $(document).ready(function () {
     
     function populateCompanyData() {
         // if hidden show the display
-        companyName = $(this).attr("id");
-        console.log("Company Name:", companyName);
-        getStock(companyName);
-        getNews(companyName);
+        clickedCompanyName = $(this).attr("id");
+        console.log("Company Name:", clickedCompanyName);
         mainDisplayToggle();
+        getStock(clickedCompanyName);
+        
+        getNews(clickedCompanyName);
+        
     }
     // Make window go to bottom of collapsible content being opened
     $('.collapsible').collapsible({
