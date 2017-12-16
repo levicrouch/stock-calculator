@@ -1,4 +1,11 @@
-var matCard = true;
+///////////////////////////////////////////////
+// Ajax JavaScript 
+//////////////////////////////////////////////
+
+///////////////////////////////////////////////////
+// Objects and variables
+///////////////////////////////////////////////////
+
 objCompany = {
     name: [
         "Apple", "Microsoft", "Amazon", "Facebook",
@@ -31,7 +38,10 @@ objCompany = {
         "http://www.investor.jnj.com"
     ]
 }
-console.log(objCompany);
+
+///////////////////////////////////////////////////
+// Functions
+///////////////////////////////////////////////////
 
 // grab newsarticles on the specified company
 function getNews(company) {
@@ -72,69 +82,44 @@ function getNews(company) {
 
 function writeNews(image, source, headline, url) {
     console.log("in writeNews function");
-    if (matCard) {
-        // create a new div
-        var sizeDiv = $("<div>");
+    // create a new div
+    var sizeDiv = $("<div>");
 
-        sizeDiv.addClass("news-card col s6 m12");
-        $(".company-news").append(sizeDiv);
+    sizeDiv.addClass("news-card col s6 m12");
+    $(".company-news").append(sizeDiv);
 
-        var cardDiv = $("<div>");
-        cardDiv.addClass("card-horiz card horizontal col s6 m12");
-        sizeDiv.append(cardDiv)
+    var cardDiv = $("<div>");
+    cardDiv.addClass("card-horiz card horizontal col s6 m12");
+    sizeDiv.append(cardDiv)
 
-        var rowDiv = $("<div>");
-        rowDiv.addClass("row");
-        cardDiv.append(rowDiv);
+    var rowDiv = $("<div>");
+    rowDiv.addClass("row");
+    cardDiv.append(rowDiv);
 
+    var cardImageDiv = $("<div>");
+    cardImageDiv.addClass("card-image");
+    rowDiv.append(cardImageDiv);
 
-        var cardImageDiv = $("<div>");
-        cardImageDiv.addClass("card-image");
-        rowDiv.append(cardImageDiv);
+    var cardImageSrc = $("<img>");
+    cardImageSrc.addClass("news-image");
+    cardImageSrc.attr("src", image);
+    rowDiv.append(cardImageSrc);
 
-        var cardImageSrc = $("<img>");
-        cardImageSrc.addClass("news-image");
-        cardImageSrc.attr("src", image);
-        rowDiv.append(cardImageSrc);
+    var cardStackedDiv = $("<div>");
+    cardStackedDiv.addClass("card-stacked");
+    rowDiv.append(cardStackedDiv);
 
-        var cardStackedDiv = $("<div>");
-        cardStackedDiv.addClass("card-stacked");
-        rowDiv.append(cardStackedDiv);
+    var cardContentDiv = $("<div>");
+    cardContentDiv.addClass("card-content");
+    cardContentDiv.html("<h5>" + headline + "</h5>");
+    cardStackedDiv.append(cardContentDiv);
 
-        var cardContentDiv = $("<div>");
-        cardContentDiv.addClass("card-content");
-        cardContentDiv.html("<h5>" + headline + "</h5>");
-        cardStackedDiv.append(cardContentDiv);
-
-        var cardActionDiv = $("<div>");
-        cardActionDiv.addClass("card-action");
-        cardActionDiv.html("<a target='_blank' href=" + url + "'>Link to article</a>");
-        cardStackedDiv.append(cardActionDiv);
-    }else{
-        // create a new div
-        var colDiv = $("<div>");
-        colDiv.addClass("news-feed col-s5");
-        $(".company-news").append(colDiv);
-
-        var materializeIcon = $("<i>");
-        materializeIcon.addClass("news-feed-icon small material-icons col-s1");
-        materializeIcon.text("business");
-        colDiv.append(materializeIcon);
-        
-        var headlineContent = $("<h6>");
-        headlineContent.addClass("headline-title col-s6");
-        headlineContent.text(headline);
-        colDiv.append(headlineContent);
-
-        var articleLink = $("<div>");
-        articleLink.addClass("link-article");
-        articleLink.html("<a class='link-to-article' target='_blank' href=" + url + ">Link to article</a>");
-        colDiv.append(articleLink);
-    }
-
+    var cardActionDiv = $("<div>");
+    cardActionDiv.addClass("card-action");
+    cardActionDiv.html("<a target='_blank' href=" + url + ">Link to article</a>");
+    cardStackedDiv.append(cardActionDiv);
 }
 
-// $("")
 function getStock(company) {
     company = company.toLowerCase();
 
@@ -159,7 +144,7 @@ function getStock(company) {
         console.log(alphaApi);
         console.log(alphaApi['Monthly Adjusted Time Series']['2017-12-15']);
         console.log(queryUrl2);
-        
+
         $(".stock-price").empty();
 
         // for (i = 0; i < 1; i++) {
