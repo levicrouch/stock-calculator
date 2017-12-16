@@ -121,72 +121,73 @@ function writeNews(image, source, headline, url) {
 }
 
 function getStock(company) {
+    console.log("in the getStock function")
     company = company.toLowerCase();
-
-    // console.log(objCompany.symbol[2]);
     for (i = 0; i < objCompany.name.length; i++) {
         objCompany.name[i] = objCompany.name[i].toLowerCase();
         console.log(objCompany.name[i]);
         if (company === objCompany.name[i]) {
             symbol = objCompany.symbol[i];
-            // console.log("symbol" + symbol);
         }
     }
-    // var symbol = "AMZN";
     var interval = 5;
-    var apiKey = "&apikey=Q56IE8OZ9WE75H7P"
-    var queryUrl2 = "https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&" + "symbol=" + symbol + "&" + "interval=" + interval + "min" + apiKey + "&datatype=json";
+    var apiKey = "&apikey=Q56IE8OZ9WE75H7P";
+    var apiFunctionMonthly = "function=TIME_SERIES_MONTHLY_ADJUSTED&";
+    var apiFunctionIntraday = "function=TIME_SERIES_INTRADAY&";
+    var apiFunctionDaily = "function=TIME_SERIES_DAILY&";
+    // var queryUrl = "https://www.alphavantage.co/query?" + apiFunctionDaily +
+    // "symbol=" + symbol + "&" + "interval=" + interval + "min" + apiKey + "&datatype=json";
+    
+    // grab the current day opening price
+    var queryUrl = "https://www.alphavantage.co/query?" + apiFunctionDaily +
+            "symbol=" + symbol + apiKey + "&datatype=json";
+        $.ajax({
+            url: queryUrl,
+            method: "GET"
+        }).done(function (dailyData) {
+            console.log("dailyData",dailyData);
+            var dailyData = dailyData['Time Series (Daily)'];
+            var todaysData = dailyData[Object.keys(dailyData)[0]];
+            var yesterdaysData = dailyData[Object.keys(dailyData)[1]];
+            var todayOpenPrice = todaysData['1. open'];
+            var yesterdaysClosingPrice = yesterdaysData['4. close'];
+            console.log("todayOpenPrice", todayOpenPrice);
+            console.log("yesterdaysClosingPrice", yesterdaysClosingPrice);
 
-    $.ajax({
-        url: queryUrl2,
-        method: "GET"
-    }).done(function (alphaApi) {
-        console.log(alphaApi);
-        console.log(alphaApi['Monthly Adjusted Time Series']['2017-12-15']);
-        console.log(queryUrl2);
+            $(".stock-price").empty();
 
-        $(".stock-price").empty();
+        });
+    }
 
-        // for (i = 0; i < 1; i++) {
-        //     var headline = data.articles[i].title;
-        //     var source = data.articles[i].source.name;
-        //     var urlToImage = data.articles[i].urlToImage;
-        //     writeStock(urlToImage, source, headline);
-        // }
-        var headline = ["Meta Data"]["2. Symbol"];
-        // console.log(headline);
-    });
 
-}
+    function writeStock(image, source, headline) {
+        console.log("in writesStock function");
+        // create a new div
 
-// getStock();
-function writeStock(image, source, headline) {
-    console.log("in writesStock function");
-    // create a new div
+        var sizeStockDiv = $("<div>");
+        sizeStockDiv.addClass("stock-card col s12 m7");
+        $(".stock-price").append(sizeStockDiv);
 
-    var sizeStockDiv = $("<div>");
-    sizeStockDiv.addClass("stock-card col s12 m7");
-    $(".stock-price").append(sizeStockDiv);
+        var cardStockDiv = $("<div>");
+        cardStockDiv.addClass("stock-card-horiz card horizontal");
+        $(".stock-card").append(cardStockDiv);
 
-    var cardStockDiv = $("<div>");
-    cardStockDiv.addClass("stock-card-horiz card horizontal");
-    $(".stock-card").append(cardStockDiv);
+        // var cardStockImageDiv = $("<div>");
+        // cardStockImageDiv.addClass("stack-card-image");
+        // $(".stock-card-horiz").append(cardStockImageDiv);
 
-    // var cardStockImageDiv = $("<div>");
-    // cardStockImageDiv.addClass("stack-card-image");
-    // $(".stock-card-horiz").append(cardStockImageDiv);
+        // var cardStockImageSrc = $("<img>");
+        // cardStockImageSrc.attr("src", image);
+        // $(".stock-card-image").append(cardStockImageSrc);
 
-    // var cardStockImageSrc = $("<img>");
-    // cardStockImageSrc.attr("src", image);
-    // $(".stock-card-image").append(cardStockImageSrc);
+        var cardStockStackedDiv = $("<div>");
+        cardStockStackedDiv.addClass("stock-card-stacked");
+        $(".stock-card-horiz").append(cardStockStackedDiv);
 
-    var cardStockStackedDiv = $("<div>");
-    cardStockStackedDiv.addClass("stock-card-stacked");
-    $(".stock-card-horiz").append(cardStockStackedDiv);
+        var cardStockContentDiv = $("<div>");
+        cardStockContentDiv.addClass("stock-card-content");
+        cardStockContentDiv.html("<p>" + headline + "</p>");
+        $(".stock-card-stacked").append(cardStockContentDiv);
+    }
 
-    var cardStockContentDiv = $("<div>");
-    cardStockContentDiv.addClass("stock-card-content");
-    cardStockContentDiv.html("<p>" + headline + "</p>");
-    $(".stock-card-stacked").append(cardStockContentDiv);
-}
-console.log(['Meta Data'].lastIndexOf(['Monthly Adjusted Time Series']));
+    console.log(['Meta Data'].lastIndexOf(['Monthly Adjusted Time Series']));
