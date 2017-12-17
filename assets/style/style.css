@@ -119,7 +119,9 @@ header {
 .card-stacked {
     width: 800px;
     
-    
+}
+.stock-price{
+    height: 360px;
 }
 /* .card-horiz {
     height: 250px;
@@ -144,8 +146,8 @@ header {
     height: 50px;
     background-color: white;
     /* position: absolute; */
-    display: inline-block;
-}
+    /* display: inline-block;
+} */
 .headline-title {
     height: -webkit-fill-available;
 }
