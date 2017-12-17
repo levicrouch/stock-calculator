@@ -15,6 +15,9 @@ $(document).ready(function () {
     // capture the company name and open a display below that shows the stock price and company news
     $(".carousel-item").on("click", populateCompanyData);
     $(".nav-wrapper").on("click", carouselDisplayToggle);
+    $("#stock-price-data").on("click", getStockData);
+    $("#stock-news-data").on("click", getNewsData);
+
 
 
     function mainDisplayToggle() {
@@ -53,16 +56,24 @@ $(document).ready(function () {
         }
     }
 
-    
+    function getStockData() {
+        console.log("In getStockData");
+        console.log("Company Name:", clickedCompanyName);
+        getStock(clickedCompanyName);
+    }
+
+    function getNewsData() {
+        console.log("in the getNewsData function");
+        console.log("Company Name:", clickedCompanyName);
+        // call the getNews function to grab the news and populate the html
+        getNews(clickedCompanyName);
+        }
+
     function populateCompanyData() {
-        // if hidden show the display
+        // get the company name from the image id and set it globally
         clickedCompanyName = $(this).attr("id");
         console.log("Company Name:", clickedCompanyName);
         mainDisplayToggle();
-        getStock(clickedCompanyName);
-        
-        getNews(clickedCompanyName);
-        
     }
     // Make window go to bottom of collapsible content being opened
     $('.collapsible').collapsible({
