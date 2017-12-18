@@ -211,7 +211,6 @@ objCompany = {
     ]
 };
 
-// console.log(objCompany);
 ///////////////////////////////////////////////////
 // Functions
 ///////////////////////////////////////////////////
@@ -221,14 +220,14 @@ function getNews() {
     // hardcode the sources for now. Maybe add an option for the user to select which news sources to use
     // var source = "bloomberg";
     var source = objApi.news.source + "&";
-    var company = comp + "&";
+    var company = objMatchedData.name + "&";
 
     console.log("in getNews function");
     var url = objApi.news.url +
         "q=" + company +
         "sources=" + source +
         "apiKey=e1ffb31d120540ed8e3b56860997fb59";
-    console.log("queryUrl", queryUrl);
+    console.log("url", url);
     $.ajax({
         url: url,
         method: "GET"
@@ -241,25 +240,25 @@ function getNews() {
             var objNews = {
                 headline: data.articles[i].title,
                 source: data.articles[i].source.name,
-                img: data.articles[i].urlToImage,
-                url: data.articles[i].url
+                newsImg: data.articles[i].urlToImage,
+                newsUrl: data.articles[i].url
             }
             writeNews(objNews);
         }
-
+        
     })
         .fail(function (err) {
             throw err;
         });
 }
 
-function writeNews() {
+function writeNews(obj) {
     console.log("in writeNews function");
     // create a new div
     var sizeDiv = $("<div>");
 
     sizeDiv.addClass("news-card col s6 m12");
-    $(".stock-price").append(sizeDiv);
+    $(".company-news").append(sizeDiv);
 
     var cardDiv = $("<div>");
     cardDiv.addClass("card-horiz card horizontal col s6 m12");
@@ -275,7 +274,7 @@ function writeNews() {
 
     var cardImageSrc = $("<img>");
     cardImageSrc.addClass("news-image");
-    cardImageSrc.attr("src", obj.img);
+    cardImageSrc.attr("src", obj.newsImg);
     rowDiv.append(cardImageSrc);
 
     var cardStackedDiv = $("<div>");
@@ -289,7 +288,7 @@ function writeNews() {
 
     var cardActionDiv = $("<div>");
     cardActionDiv.addClass("card-action");
-    cardActionDiv.html("<a target='_blank' href=" + obj.url + ">Link to article</a>");
+    cardActionDiv.html("<a target='_blank' href=" + obj.newsUrl + ">Link to article</a>");
     cardStackedDiv.append(cardActionDiv);
 }
 
@@ -300,11 +299,11 @@ function parseCompanyData() {
         var companyFromObject = objCompany.companies[i].name.toLowerCase();
         if (clickedCompanyName === companyFromObject) {
             objMatchedData.name = objCompany.companies[i].name.toLowerCase();
-                objMatchedData.symbol = objCompany.companies[i].symbol.toUpperCase();
-                objMatchedData.url = objCompany.companies[i].url;
-                objMatchedData.img = objCompany.companies[i].img;
-                objMatchedData.price = 0;
-                objMatchedData.volume = 0;
+            objMatchedData.symbol = objCompany.companies[i].symbol.toUpperCase();
+            objMatchedData.url = objCompany.companies[i].url;
+            objMatchedData.img = objCompany.companies[i].img;
+            objMatchedData.price = 0;
+            objMatchedData.volume = 0;
             console.log("objMatchedData:", objMatchedData);
             return objMatchedData;
         }
@@ -353,35 +352,14 @@ function getIntraDayStockData() {
 
 function getStock() {
     console.log("in the getStock function")
-    // populateCompanyData();
-    // var objComp = parseCompanyData(comp);
-    // return the daily and intraday day based on the company selected
-    // getDailyStockData().done(function(data) {
-    //     console.log("data 305:", data);
-    //     var data = data['Time Series (Daily)'];
-    //     console.log("data 307:", data);
-    //     var todaysData = data[Object.keys(data)[0]];
-    //     var yesterdaysData = data[Object.keys(data)[1]];
-    //     // add today's opening price string and yesterday's closing price string
-    //     objMatchedData.openPrice = todaysData['1. open'];
-    //     objMatchedData.closingPrice = yesterdaysData['4. close'];
-    //     console.log("objDailyData.openPrice", objMatchedData.openPrice);
-    //     console.log("objDailyData.closingPrice", objMatchedData.closingPrice);
-    //     // return objDailyData;
-    // }).fail(function (err) {
-    //     throw err;
-    // });
     getIntraDayStockData().done(function (response) {
         var response = response['Time Series (5min)'];
-        // console.log("intraDayData", intraDayData);
         var mostRecentIntraDayData = response[Object.keys(response)[0]];
         objMatchedData.price = mostRecentIntraDayData['1. open'];
         objMatchedData.volume = mostRecentIntraDayData['5. volume'];
 
         console.log("objMatchedData.price", objMatchedData.price);
         console.log("objMatchedData.volume", objMatchedData.volume);
-        // return objMatchedData;
-
     }).fail(function (err) {
         throw err;
     });
@@ -389,7 +367,7 @@ function getStock() {
     // combine the objects into a singular object that gets written to the HTML
     console.log("after capturing intraday data: objMatchedData:", objMatchedData);
     // write the data to the html
-    if (objMatchedData.price !== 0){
+    if (objMatchedData.price !== 0) {
         writeStock();
     }
 }

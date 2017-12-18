@@ -14,10 +14,13 @@ $(document).ready(function () {
     // When the user clicks an image in the carousel,
     // capture the company name and open a display below that shows the stock price and company news
     $(".carousel-item").on("click", populateCompanyData);
+    // toggle the carousel display
     $(".nav-wrapper").on("click", carouselDisplayToggle);
+    // grab stock data when the stock-price-data is clicked
     $("#stock-price-data").on("click", getStock);
+    // grab company news when the stock news data is clicked
     $("#stock-news-data").on("click", getNews);
-
+    // });
 
 
     function mainDisplayToggle() {
@@ -60,10 +63,13 @@ $(document).ready(function () {
         console.log("in the getNewsData function");
         console.log("Company Name:", clickedCompanyName);
         // call the getNews function to grab the news and populate the html
+        populateCompanyData();
         getNews();
+        // mainDisplayToggle();
     }
 
     function populateCompanyData() {
+        console.log("We are in the populateCompanyData function");
         // get the company name from the image id and set it globally
         clickedCompanyName = $(this).attr("id");
         console.log("Company Name:", clickedCompanyName);
