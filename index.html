@@ -9,9 +9,6 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
 
-    <!-- Adding bootstrap 3.3.7 CSS
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
-
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -19,14 +16,7 @@
     <link type="text/css" rel="stylesheet" href="assets/materialize/css/materialize.min.css" media="screen,projection" />
     <!-- Adding our stylesheet -->
     <link rel="stylesheet" href="assets/style/style.css">
-    
 
-    <!-- Adding our stylesheet -->
-    <link rel="stylesheet" href="assets/style/style.css">
-
-    <!-- Adding our javascript -->
-    <!-- <script src="assets/javascript/app.js"></script> -->
-    
     <!-- Adding main javascript -->
     <script src="assets/javascript/main.js"></script>
     <!-- Adding ajax javascript -->
@@ -44,7 +34,7 @@
                 <ul class="high-on-med-and-down right">
                     <li>
                         <div class="center row">
-                            <div class-"col s12">
+                            <div class- "col s12">
                                 <div class="row" id="topbarsearch">
                                     <form method="get" action="/search" id="search">
                                         <input name="q" type="text" size="40" placeholder="Search.." />
@@ -53,37 +43,28 @@
                             </div>
                         </div>
                     </li>
-                    <li><a href='%' class="red-text">One</a></li>
-                    <li><a href='%' class="red-text">Two</a></li>
-                    <li><a href='%' class="red-text">Three</a></li>
+                    <li>
+                        <a href='%' class="red-text">One</a>
+                    </li>
+                    <li>
+                        <a href='%' class="red-text">Two</a>
+                    </li>
+                    <li>
+                        <a href='%' class="red-text">Three</a>
+                    </li>
                 </ul>
             </div>
         </nav>
     </div>
-    <!-- <ul id='dropdown1' class='dropdown-content'>
-        <li>
-            <div class = "input-field">
-                <i class = "material-icons prefix">mode_edit</i>
-                <textarea id = "input-company-name"></textarea>
-                <label for = "input-company-name">Company Name</label>
-             </div>
-            
-            <input id="last_name" type="text" class="validate">
-            <label for="last_name">Last Name</label>
-            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                <i class="material-icons right">send</i>
-              </button>
-        </li>
-    </ul>-->
     <div id="introContainer">
         <div class="row">
-            <div class="carousel">
+            <div data-visibility="visible" class="carousel">
                 <img class="carousel-item" id="amazon" src="assets/images/amazon.png">
                 <img class="carousel-item" id="tesla" src="assets/images/tesla.png">
                 <img class="carousel-item" id="netflix" src="assets/images/netflix.png">
                 <img class="carousel-item" id="jpmorgan" src="assets/images/jpmorgan.png">
                 <img class="carousel-item" id="alphabet" src="assets/images/alphabet.png">
-                <img class="carousel-item" id="berkshire" src="assets/images/berkshire.png">
+                <img class="carousel-item" id="Berkshire Hathaway" src="assets/images/berkshire.png">
                 <img class="carousel-item" id="microsoft" src="assets/images/microsoft.png">
                 <img class="carousel-item" id="disney" src="assets/images/disney.png">
                 <img class="carousel-item" id="johnson" src="assets/images/johnson.png">
@@ -99,15 +80,15 @@
                 <div class="main-display" data-visibility="hidden">
                     <ul class="collapsible z-depth-2 " data-collapsible="expandable">
                         <li>
-                            <div class="collapsible-header z-depth-2">
+                            <div class="collapsible-header z-depth-2" id="stock-price-data">
                                 <i class="material-icons">attach_money</i>Stock Price</div>
                             <div class="collapsible-body stock-price">
                             </div>
                         </li>
                         <li>
-                            <div class="collapsible-header z-depth-2">
+                            <div class="collapsible-header z-depth-2" id="stock-news-data">
                                 <i class="material-icons">chrome_reader_mode</i>News</div>
-                            <div class="collapsible-body company-news "></div>
+                            <div class="collapsible-body company-news"></div>
                         </li>
                     </ul>
                 </div>

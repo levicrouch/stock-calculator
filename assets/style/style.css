@@ -1,7 +1,9 @@
 body {
     margin-bottom: 140px;
 }
-
+.collapsible-body{
+    background-color: gray;
+}
 #logo{
     
     color: white;
@@ -12,7 +14,7 @@ body {
     height: 100%;
   }
   .brand-logo{
-    margin-left: 40px;
+      margin-left: 40px;
   }
 h1{
     font-size: 50px;
@@ -29,7 +31,6 @@ header {
     float: center;
     /* position: fixed; */
 }
-
 
 .left-nav {
     height: 600px;
@@ -92,14 +93,14 @@ header {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: rgb(241, 241, 241);
+    background-color: rgb(253, 255, 253);
 }
 .company-news{
     height: 2700px;
-    
 }
 .news-image{
-    height: auto;
+    max-width: 300px;
+    height: 200px;
     float: left;
     padding-right: 15px; 
     height: 200px;
@@ -117,7 +118,9 @@ header {
 .card-stacked {
     width: 800px;
     
-    
+}
+.stock-price{
+    height: 360px;
 }
 /* .card-horiz {
     height: 250px;
@@ -125,25 +128,29 @@ header {
 /* .card-content{
     width: 800px;
 }
-.card-action{
-    width: 800px;
-} */
+
+.card-image{
+    width: 300px;
+    padding-bottom: 30px;
+    padding-left:10px;
+    padding-right: 30px;
+    padding-top: 30px;
+}
+
 .news-feed-icon, .headline-title {
     float: left;
     margin-right: 20px;
 }
-
 .news-feed {
     height: 50px;
     background-color: white;
     /* position: absolute; */
-    display: inline-block;
-}
+    /* display: inline-block;
+} */
 .headline-title {
     height: -webkit-fill-available;
 }
 .link-to-article {
-    /* right: 20px; */
     float: right;
 }
 #search {
@@ -173,3 +180,5 @@ header {
  #search input[type="text"]:focus {
     width: 200px;
  }
+
+  

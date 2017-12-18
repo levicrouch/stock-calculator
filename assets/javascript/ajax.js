@@ -1,53 +1,235 @@
-var matCard = true;
+///////////////////////////////////////////////
+// Ajax JavaScript 
+//////////////////////////////////////////////
+
+///////////////////////////////////////////////////
+// Objects and variables
+///////////////////////////////////////////////////
+// Create empty object
+
+objMatchedData = {
+    property: "value"
+};
+objApi = {
+    alphaVantage: {
+        key: "&apikey=Q56IE8OZ9WE75H7P",
+        url: "https://www.alphavantage.co/query?",
+        interval: 5,
+        function: {
+            monthly: "function=TIME_SERIES_MONTHLY_ADJUSTED&",
+            intraday: "function=TIME_SERIES_INTRADAY&",
+            daily: "function=TIME_SERIES_DAILY&"
+        }
+    },
+    news: {
+        url: "https://newsapi.org/v2/everything?",
+        source: "bloomberg"
+    }
+};
 objCompany = {
-    name: [
-        "Apple", "Microsoft", "Amazon", "Facebook",
-        "Google", "Alphabet", "Intel", "Cisco",
-        "Comcast", "Amgen", "Nvidia", "Broadcom",
-        "Gilead Sciences", "Texas Instruments", "Qualcomm", "Kraft Heinz",
-        "Paypal", "Adobe", "Charter Communications", "Starbucks",
-        "Celgene", "Priceline", "Costco", "Netflix",
-        "Walgreens", "Tesla", "JPMorgan", "Berkshire Hathaway",
-        "Johnson & Johnson"
-    ],
-    symbol: [
-        "AAPL", "MSFT", "AMZN", "FB",
-        "GOOG", "GOOGL", "INTC", "CSCO",
-        "CMCSA", "AMGN", "NVDA", "AVGO",
-        "GILD", "TXN", "QCOM", "KHC",
-        "PYPL", "ADBE", "CHTR", "SBUX",
-        "CELG", "PCLN", "COST", "NFLX",
-        "WBA", "TSLA", "JPM", "BRK-A",
-        "JNJ"
-    ],
-    url: [
-        "http://investor.apple.com/", "https://www.microsoft.com/en-us/investor/", "http://phx.corporate-ir.net/phoenix.zhtml?c=97664&p=irol-irhome", "https://investor.fb.com/home/default.aspx",
-        "https://abc.xyz/investor/", "https://abc.xyz/investor/", "https://www.intc.com/investor-relations/default.aspx", "https://investor.cisco.com/investor-relations/overview/default.aspx",
-        "http://www.cmcsa.com/", "http://investors.amgen.com/", "http://investor.nvidia.com/home/default.aspx", "http://investors.broadcom.com",
-        "http://investors.gilead.com", "http://www.ti.com/corp/docs/investor_relations/index.html", "https://www.qualcomm.com/info/investor-relations", "http://ir.kraftheinzcompany.com/",
-        "https://investor.paypal-corp.com/", "http://www.adobe.com/investor-relations.html", "http://ir.charter.com", "https://investor.starbucks.com",
-        "http://ir.celgene.com/", "http://ir.pricelinegroup.com/", "http://phx.corporate-ir.net/phoenix.zhtml?c=83830&p=irol-irhome", "https://ir.netflix.com/",
-        "http://investor.walgreensbootsalliance.com/", "http://ir.tesla.com/", "https://www.jpmorganchase.com/corporate/investor-relations/investor-relations.htm", "http://www.berkshirehathaway.com/reports.html",
-        "http://www.investor.jnj.com"
+    companies: [
+        {
+            name: "Apple",
+            symbol: "AAPL",
+            url: "http://investor.apple.com",
+            img: "apple.png"
+        },
+        {
+            name: "Alphabet",
+            symbol: "GOOGL",
+            url: "https://abc.xyz/investor",
+            img: "alphabet.png"
+        },
+        {
+            name: "Disney",
+            symbol: "DIS",
+            url: "https://thewaltdisneycompany.com/investor-relations",
+            img: "disney.png"
+        },
+        {
+            name: "Amazon",
+            symbol: "AMZN",
+            url: "http://phx.corporate-ir.net/phoenix.zhtml?c=97664&p=irol-irhome",
+            img: "amazon.png"
+        },
+        {
+            name: "Microsoft",
+            symbol: "MSFT",
+            url: "https://www.microsoft.com/en-us/investor",
+            img: "microsoft.png"
+        },
+        {
+            name: "Facebook",
+            symbol: "fb",
+            url: "https://investor.fb.com/home/default.aspx",
+            img: "fb.png"
+        },
+        {
+            name: "Google",
+            symbol: "GOOG",
+            url: "https://abc.xyz/investor",
+            img: "google.png"
+        },
+        {
+            name: "Intel",
+            symbol: "INTC",
+            url: "https://www.intc.com/investor-relations/default.aspx",
+            img: "intel.png"
+        },
+        {
+            name: "Cisco",
+            symbol: "CSCO",
+            url: "https://investor.cisco.com/investor-relations/overview/default.aspx",
+            img: "cisco.png"
+        },
+        {
+            name: "Amgen",
+            symbol: "AMGN",
+            url: "http://investors.amgen.com",
+            img: "amgen.png"
+        },
+        {
+            name: "Comcast",
+            symbol: "CMCSA",
+            url: "http://www.cmcsa.com",
+            img: "comcast.png"
+        },
+        {
+            name: "Nvidia",
+            symbol: "NVDA",
+            url: "http://investor.nvidia.com/home/default.aspx",
+            img: "nvidia.png"
+        },
+        {
+            name: "Broadcom",
+            symbol: "AVGO",
+            url: "http://investors.broadcom.com",
+            img: "broadcom.png"
+        },
+        {
+            name: "Gilead Sciences",
+            symbol: "GILD",
+            url: "http://investors.gilead.com",
+            img: "gilead.png"
+        },
+        {
+            name: "Texas Instruments",
+            symbol: "TXN",
+            url: "http://www.ti.com/corp/docs/investor_relations/index.html",
+            img: "ti.png"
+        },
+        {
+            name: "Qualcomm",
+            symbol: "QCOM",
+            url: "https://www.qualcomm.com/info/investor-relations",
+            img: "qualcomm.png"
+        },
+        {
+            name: "Kraft Heinz",
+            symbol: "KHC",
+            url: "http://ir.kraftheinzcompany.com",
+            img: "kraftheainz.jpg"
+        },
+        {
+            name: "Paypal",
+            symbol: "PYPL",
+            url: "https://investor.paypal-corp.com",
+            img: "paypal.png"
+        },
+        {
+            name: "Adobe",
+            symbol: "ADBE",
+            url: "http://www.adobe.com/investor-relations.html",
+            img: "adobe.png"
+        },
+        {
+            name: "Charter Communications",
+            symbol: "CHTR",
+            url: "http://ir.charter.com",
+            img: "charter.png"
+        },
+        {
+            name: "Starbucks",
+            symbol: "SBUX",
+            url: "https://investor.starbucks.com",
+            img: "starbucks.png"
+        },
+        {
+            name: "Celgene",
+            symbol: "CELG",
+            url: "http://ir.celgene.com",
+            img: "celgene.png"
+        },
+        {
+            name: "Priceline",
+            symbol: "PCLN",
+            url: "http://ir.pricelinegroup.com",
+            img: "priceline.png"
+        },
+        {
+            name: "Costco",
+            symbol: "COST",
+            url: "http://phx.corporate-ir.net/phoenix.zhtml?c=83830&p=irol-irhome",
+            img: "costco.png"
+        },
+        {
+            name: "Netflix",
+            symbol: "NFLX",
+            url: "https://ir.netflix.com",
+            img: "netflix.png"
+        },
+        {
+            name: "Walgreens",
+            symbol: "WBA",
+            url: "http://investor.walgreensbootsalliance.com",
+            img: "walgreens.png"
+        },
+        {
+            name: "Tesla",
+            symbol: "TSLA",
+            url: "http://ir.tesla.com",
+            img: "tesla.png"
+        },
+        {
+            name: "JPMorgan",
+            symbol: "JPM",
+            url: "https://www.jpmorganchase.com/corporate/investor-relations/investor-relations.htm",
+            img: "jpmorgan.png"
+        },
+        {
+            name: "Berkshire Hathaway",
+            symbol: "BRK-A",
+            url: "http://www.berkshirehathaway.com/reports.html",
+            img: "berkshire.png"
+        },
+        {
+            name: "Johnson",
+            symbol: "JNJ",
+            url: "http://www.investor.jnj.com",
+            img: "johnson.png"
+        }
     ]
-}
-console.log(objCompany);
+};
+
+///////////////////////////////////////////////////
+// Functions
+///////////////////////////////////////////////////
 
 // grab newsarticles on the specified company
-function getNews(company) {
+function getNews() {
     // hardcode the sources for now. Maybe add an option for the user to select which news sources to use
-    var source = "bloomberg";
-    var source = source + "&";
-    var company = company + "&";
+    // var source = "bloomberg";
+    var source = objApi.news.source + "&";
+    var company = objMatchedData.name + "&";
 
     console.log("in getNews function");
-    var queryUrl = "https://newsapi.org/v2/everything?" +
+    var url = objApi.news.url +
         "q=" + company +
         "sources=" + source +
         "apiKey=e1ffb31d120540ed8e3b56860997fb59";
-    console.log("queryUrl", queryUrl);
+    console.log("url", url);
     $.ajax({
-        url: queryUrl,
+        url: url,
         method: "GET"
     }).done(function (data) {
         console.log(data);
@@ -55,155 +237,215 @@ function getNews(company) {
         $(".company-news").empty();
         // Grab top 10 articles data points
         for (i = 0; i < 10; i++) {
-            // var newsDiv = $("div class='news-div'>");
-
-            var headline = data.articles[i].title;
-            var source = data.articles[i].source.name;
-            var urlToImage = data.articles[i].urlToImage;
-            var storyUrl = data.articles[i].url
-            writeNews(urlToImage, source, headline, storyUrl);
+            var objNews = {
+                headline: data.articles[i].title,
+                source: data.articles[i].source.name,
+                newsImg: data.articles[i].urlToImage,
+                newsUrl: data.articles[i].url
+            }
+            writeNews(objNews);
         }
-
+        
     })
         .fail(function (err) {
             throw err;
         });
 }
 
-function writeNews(image, source, headline, url) {
+function writeNews(obj) {
     console.log("in writeNews function");
-    if (matCard) {
-        // create a new div
-        var sizeDiv = $("<div>");
-        sizeDiv.addClass("news-card col s8 m12 l12");
-        $(".company-news").append(sizeDiv);
+    // create a new div
+    var sizeDiv = $("<div>");
 
-        var cardDiv = $("<div>");
-        cardDiv.addClass("card-horiz card horizontal col s8 m12");
-        sizeDiv.append(cardDiv)
+    sizeDiv.addClass("news-card col s6 m12");
+    $(".company-news").append(sizeDiv);
 
-        var rowDiv = $("<div>");
-        rowDiv.addClass("row");
-        cardDiv.append(rowDiv);
+    var cardDiv = $("<div>");
+    cardDiv.addClass("card-horiz card horizontal col s6 m12");
+    sizeDiv.append(cardDiv)
 
+    var rowDiv = $("<div>");
+    rowDiv.addClass("row");
+    cardDiv.append(rowDiv);
 
-        var cardImageDiv = $("<div>");
-        cardImageDiv.addClass("card-image");
-        rowDiv.append(cardImageDiv);
+    var cardImageDiv = $("<div>");
+    cardImageDiv.addClass("card-image");
+    rowDiv.append(cardImageDiv);
 
-        var cardImageSrc = $("<img>");
-        cardImageSrc.addClass("news-image");
-        cardImageSrc.attr("src", image);
-        rowDiv.append(cardImageSrc);
+    var cardImageSrc = $("<img>");
+    cardImageSrc.addClass("news-image");
+    cardImageSrc.attr("src", obj.newsImg);
+    rowDiv.append(cardImageSrc);
 
-        var cardStackedDiv = $("<div>");
-        cardStackedDiv.addClass("card-stacked");
-        rowDiv.append(cardStackedDiv);
+    var cardStackedDiv = $("<div>");
+    cardStackedDiv.addClass("card-stacked");
+    rowDiv.append(cardStackedDiv);
 
-        var cardContentDiv = $("<div>");
-        cardContentDiv.addClass("card-content");
-        cardContentDiv.html("<h5>" + headline + "</h5>");
-        cardStackedDiv.append(cardContentDiv);
+    var cardContentDiv = $("<div>");
+    cardContentDiv.addClass("card-content");
+    cardContentDiv.html("<h5>" + obj.headline + "</h5>");
+    cardStackedDiv.append(cardContentDiv);
 
-        //     <div class="card-action">
-        //     <a href="#">This is a link</a>
-        //   </div>
-        var cardActionDiv = $("<div>");
-        cardActionDiv.addClass("card-action");
-        cardActionDiv.html("<a target='_blank' href=" + url + "'>Link to article</a>");
-        cardStackedDiv.append(cardActionDiv);
-    }else{
-        // create a new div
-        var colDiv = $("<div>");
-        colDiv.addClass("news-feed col-s5");
-        $(".company-news").append(colDiv);
-
-        var materializeIcon = $("<i>");
-        materializeIcon.addClass("news-feed-icon small material-icons col-s1");
-        materializeIcon.text("business");
-        colDiv.append(materializeIcon);
-        
-        var headlineContent = $("<h6>");
-        headlineContent.addClass("headline-title col-s6");
-        headlineContent.text(headline);
-        colDiv.append(headlineContent);
-
-        var articleLink = $("<div>");
-        articleLink.addClass("link-article");
-        articleLink.html("<a class='link-to-article' target='_blank' href=" + url + "'>Link to article</a>");
-        colDiv.append(articleLink);
-    }
-
+    var cardActionDiv = $("<div>");
+    cardActionDiv.addClass("card-action");
+    cardActionDiv.html("<a target='_blank' href=" + obj.newsUrl + ">Link to article</a>");
+    cardStackedDiv.append(cardActionDiv);
 }
 
-// $("")
-function getStock(company) {
-    company = company.toLowerCase();
-
-    // console.log(objCompany.symbol[2]);
-    for (i = 0; i < objCompany.name.length; i++) {
-        objCompany.name[i] = objCompany.name[i].toLowerCase();
-        console.log(objCompany.name[i]);
-        if (company === objCompany.name[i]) {
-            symbol = objCompany.symbol[i];
-            // console.log("symbol" + symbol);
+function parseCompanyData() {
+    // function for matching and parsing the company data
+    clickedCompanyName = clickedCompanyName.toLowerCase();
+    for (i = 0; i < objCompany.companies.length; i++) {
+        var companyFromObject = objCompany.companies[i].name.toLowerCase();
+        if (clickedCompanyName === companyFromObject) {
+            objMatchedData.name = objCompany.companies[i].name.toLowerCase();
+            objMatchedData.symbol = objCompany.companies[i].symbol.toUpperCase();
+            objMatchedData.url = objCompany.companies[i].url;
+            objMatchedData.img = objCompany.companies[i].img;
+            objMatchedData.price = 0;
+            objMatchedData.volume = 0;
+            console.log("objMatchedData:", objMatchedData);
+            return objMatchedData;
         }
     }
-    // var symbol = "AMZN";
-    var interval = 5;
-    var apiKey = "&apikey=Q56IE8OZ9WE75H7P"
-    var queryUrl2 = "https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&" + "symbol=" + symbol + "&" + "interval=" + interval + "min" + apiKey + "&datatype=json";
+}
 
-    $.ajax({
-        url: queryUrl2,
+function getDailyStockData() {
+    // grab the current day JSON
+    var url = objApi.alphaVantage.url + objApi.alphaVantage.function.daily +
+        "symbol=" + objMatchedData.symbol + objApi.alphaVantage.key + "&datatype=json";
+
+    return $.ajax({
+        url: url,
+        method: "GET",
+        dataType: "json"
+    });
+}
+
+function getIntraDayStockData() {
+    // grab the intraday data
+    console.log("In the getIntraDayStockData function");
+    var url = objApi.alphaVantage.url + objApi.alphaVantage.function.intraday +
+        "symbol=" + objMatchedData.symbol +
+        "&" + "interval=" + objApi.alphaVantage.interval + "min" + objApi.alphaVantage.key + "&datatype=json";
+
+    return $.ajax({
+        url: url,
+        timeout: 10000,
         method: "GET"
-    }).done(function (alphaApi) {
-        console.log(alphaApi);
-        console.log(alphaApi['Monthly Adjusted Time Series']['2017-12-15']);
-        console.log(queryUrl2);
-        
-        $(".stock-price").empty();
+    });
+    // }).done(function (response) {
+    //     var response = response['Time Series (5min)'];
+    //     // console.log("intraDayData", intraDayData);
+    //     var mostRecentIntraDayData = response[Object.keys(response)[0]];
+    //     objMatchedData.price = mostRecentIntraDayData['1. open'];
+    //     objMatchedData.volume = mostRecentIntraDayData['5. volume'];
 
-        // for (i = 0; i < 1; i++) {
-        //     var headline = data.articles[i].title;
-        //     var source = data.articles[i].source.name;
-        //     var urlToImage = data.articles[i].urlToImage;
-        //     writeStock(urlToImage, source, headline);
-        // }
-        var headline = ["Meta Data"]["2. Symbol"];
-        // console.log(headline);
+    //     console.log("objIntradayData.price", objMatchedData.price);
+    //     console.log("objIntradayData.volume", objMatchedData.volume);
+    //     return objMatchedData;
+
+    // }).fail(function (err) {
+    //     throw err;
+    // });
+}
+
+function getStock() {
+    console.log("in the getStock function")
+    getIntraDayStockData().done(function (response) {
+        var response = response['Time Series (5min)'];
+        var mostRecentIntraDayData = response[Object.keys(response)[0]];
+        objMatchedData.price = mostRecentIntraDayData['1. open'];
+        objMatchedData.volume = mostRecentIntraDayData['5. volume'];
+
+        console.log("objMatchedData.price", objMatchedData.price);
+        console.log("objMatchedData.volume", objMatchedData.volume);
+    }).fail(function (err) {
+        throw err;
     });
 
+    // combine the objects into a singular object that gets written to the HTML
+    console.log("after capturing intraday data: objMatchedData:", objMatchedData);
+    // write the data to the html
+    if (objMatchedData.price !== 0) {
+        writeStock();
+    }
 }
 
-// getStock();
-function writeStock(image, source, headline) {
+
+function writeStock() {
+
     console.log("in writesStock function");
-    // create a new div
+    // clear out old data
+    $(".stock-price").empty();
 
-    var sizeStockDiv = $("<div>");
-    sizeStockDiv.addClass("stock-card col s12 m7");
-    $(".stock-price").append(sizeStockDiv);
+    var currentPrice = parseInt(objMatchedData.price);
+    currentPrice = currentPrice.toFixed(2);
 
-    var cardStockDiv = $("<div>");
-    cardStockDiv.addClass("stock-card-horiz card horizontal");
-    $(".stock-card").append(cardStockDiv);
+    var sizeDiv = $("<div>");
 
-    // var cardStockImageDiv = $("<div>");
-    // cardStockImageDiv.addClass("stack-card-image");
-    // $(".stock-card-horiz").append(cardStockImageDiv);
+    sizeDiv.addClass("news-card col s6 m12");
+    $(".stock-price").append(sizeDiv);
 
-    // var cardStockImageSrc = $("<img>");
-    // cardStockImageSrc.attr("src", image);
-    // $(".stock-card-image").append(cardStockImageSrc);
+    var cardDiv = $("<div>");
+    cardDiv.addClass("card-horiz card horizontal col s6 m12");
+    sizeDiv.append(cardDiv)
 
-    var cardStockStackedDiv = $("<div>");
-    cardStockStackedDiv.addClass("stock-card-stacked");
-    $(".stock-card-horiz").append(cardStockStackedDiv);
+    var rowDiv = $("<div>");
+    rowDiv.addClass("row");
+    cardDiv.append(rowDiv);
 
-    var cardStockContentDiv = $("<div>");
-    cardStockContentDiv.addClass("stock-card-content");
-    cardStockContentDiv.html("<p>" + headline + "</p>");
-    $(".stock-card-stacked").append(cardStockContentDiv);
+    var cardImageDiv = $("<div>");
+    cardImageDiv.addClass("card-image");
+    rowDiv.append(cardImageDiv);
+
+    var image = "assets/images/" + objMatchedData.img;
+    console.log("image", image);
+    var cardImageSrc = $("<img>");
+    cardImageSrc.addClass("news-image");
+    cardImageSrc.attr("src", image);
+    rowDiv.append(cardImageSrc);
+
+    var cardStackedDiv = $("<div>");
+    cardStackedDiv.addClass("card-stacked");
+    rowDiv.append(cardStackedDiv);
+
+    var cardContentDiv = $("<div>");
+    cardContentDiv.addClass("card-content");
+    // create a table to insert into the card
+    var priceTable = $("<table>");
+    priceTable.addClass("responsive-table striped price-data-table");
+
+    // add the table headers
+    var tableHead = $("<thead>");
+    priceTable.append(tableHead);
+    var tableRow = $("<tr>");
+    tableHead.append(tableRow);
+    var tableDataHeader1 = $("<th>");
+    tableDataHeader1.append("Current Price");
+    var tableDataHeader2 = $("<th>");
+    tableDataHeader2.append("Daily Volume");
+    tableRow.append(tableDataHeader1, tableDataHeader2);
+
+    // add content to the table
+    var priceTableBody = $("<tbody>");
+    priceTable.append(priceTableBody);
+    var tableRow = $("<tr>");
+    priceTableBody.append(tableRow);
+    var tdPrice = $("<td>");
+    tdPrice.append(currentPrice);
+    tableRow.append(tdPrice);
+    var tdVolume = $("<td>");
+    tdVolume.append(objMatchedData.volume);
+    tableRow.append(tdPrice, tdVolume);
+
+    cardContentDiv.html("<h5>" + objMatchedData.name + "</h5>");
+    cardContentDiv.append(priceTable);
+
+    cardStackedDiv.append(cardContentDiv);
+
+    var cardActionDiv = $("<div>");
+    cardActionDiv.addClass("card-action");
+    cardActionDiv.html("<a target='_blank' href=" + objMatchedData.url + ">Investor Relations</a>");
+    cardStackedDiv.append(cardActionDiv);
 }
-console.log(['Meta Data'].lastIndexOf(['Monthly Adjusted Time Series']));
