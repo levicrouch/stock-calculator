@@ -34,7 +34,6 @@ $(document).ready(function () {
             $(".main-display").fadeIn(500);
             $(".carousel").attr("data-visibility", "hidden");
             $('.carousel').fadeOut(500);
-            // $(".carousel").hide();
         } else if (currentMainDisplayVisibility === "visible") {
             // if main display is currently visible, hide it
             $(".main-display").attr("data-visibility", "hidden");
@@ -65,7 +64,6 @@ $(document).ready(function () {
         // call the getNews function to grab the news and populate the html
         populateCompanyData();
         getNews();
-        // mainDisplayToggle();
     }
 
     function populateCompanyData() {
