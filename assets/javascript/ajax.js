@@ -218,7 +218,6 @@ objCompany = {
 // grab newsarticles on the specified company
 function getNews() {
     // hardcode the sources for now. Maybe add an option for the user to select which news sources to use
-    // var source = "bloomberg";
     var source = objApi.news.source + "&";
     var company = objMatchedData.name + "&";
 
@@ -334,20 +333,6 @@ function getIntraDayStockData() {
         timeout: 10000,
         method: "GET"
     });
-    // }).done(function (response) {
-    //     var response = response['Time Series (5min)'];
-    //     // console.log("intraDayData", intraDayData);
-    //     var mostRecentIntraDayData = response[Object.keys(response)[0]];
-    //     objMatchedData.price = mostRecentIntraDayData['1. open'];
-    //     objMatchedData.volume = mostRecentIntraDayData['5. volume'];
-
-    //     console.log("objIntradayData.price", objMatchedData.price);
-    //     console.log("objIntradayData.volume", objMatchedData.volume);
-    //     return objMatchedData;
-
-    // }).fail(function (err) {
-    //     throw err;
-    // });
 }
 
 function getStock() {
