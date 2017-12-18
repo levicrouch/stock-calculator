@@ -5,6 +5,10 @@
 ///////////////////////////////////////////////////
 // Objects and variables
 ///////////////////////////////////////////////////
+// Create empty object
+objMatchedData = {
+    property: "value"
+};
 objApi = {
     alphaVantage: {
         key: "&apikey=Q56IE8OZ9WE75H7P",
@@ -194,13 +198,13 @@ objCompany = {
     ]
 };
 
-console.log(objCompany);
+// console.log(objCompany);
 ///////////////////////////////////////////////////
 // Functions
 ///////////////////////////////////////////////////
 
 // grab newsarticles on the specified company
-function getNews(comp) {
+function getNews() {
     // hardcode the sources for now. Maybe add an option for the user to select which news sources to use
     // var source = "bloomberg";
     var source = objApi.news.source + "&";
@@ -236,7 +240,7 @@ function getNews(comp) {
         });
 }
 
-function writeNews(obj) {
+function writeNews() {
     console.log("in writeNews function");
     // create a new div
     var sizeDiv = $("<div>");
@@ -276,106 +280,110 @@ function writeNews(obj) {
     cardStackedDiv.append(cardActionDiv);
 }
 
-function parseCompanyData(company) {
+function parseCompanyData() {
     // function for matching and parsing the company data
-    company = company.toLowerCase();
+    clickedCompanyName = clickedCompanyName.toLowerCase();
     for (i = 0; i < objCompany.companies.length; i++) {
         var companyFromObject = objCompany.companies[i].name.toLowerCase();
-        if (company === companyFromObject) {
-            var objMatchedData = {
-                name: objCompany.companies[i].name.toLowerCase(),
-                symbol: objCompany.companies[i].symbol.toUpperCase(),
-                url: objCompany.companies[i].url,
-                img: objCompany.companies[i].img
-            };
+        if (clickedCompanyName === companyFromObject) {
+            objMatchedData.name = objCompany.companies[i].name.toLowerCase(),
+                objMatchedData.symbol = objCompany.companies[i].symbol.toUpperCase(),
+                objMatchedData.url = objCompany.companies[i].url,
+                objMatchedData.img = objCompany.companies[i].img
+            console.log("objMatchedData:", objMatchedData);
             return objMatchedData;
         }
     }
 }
 
-function getDailyStockData(obj) {
+function getDailyStockData() {
     // grab the current day JSON
     var url = objApi.alphaVantage.url + objApi.alphaVantage.function.daily +
-        "symbol=" + obj.symbol + objApi.alphaVantage.key + "&datatype=json";
+        "symbol=" + objMatchedData.symbol + objApi.alphaVantage.key + "&datatype=json";
 
-    $.ajax({
+    return $.ajax({
         url: url,
-        method: "GET"
-    }).done(function (dailyData) {
-        console.log("dailyData 305:",dailyData);
-        var dailyData = dailyData['Time Series (Daily)'];
-        console.log("dailyData 307:",dailyData);
-        var todaysData = dailyData[Object.keys(dailyData)[0]];
-        var yesterdaysData = dailyData[Object.keys(dailyData)[1]];
-        // add today's opening price string and yesterday's closing price string
-        var objDailyData = {
-            openPrice: todaysData['1. open'],
-            closingPrice: yesterdaysData['4. close'],
-        }
-        console.log("objDailyData.openPrice", objDailyData.openPrice);
-        console.log("objDailyData.closingPrice", objDailyData.closingPrice);
-        return objDailyData;
-    }).fail(function (err) {
-        throw err;
+        method: "GET",
+        dataType: "json"
     });
 }
 
-function getIntraDayStockData(obj) {
+function getIntraDayStockData() {
     // grab the intraday data
+    console.log("In the getIntraDayStockData function");
     var url = objApi.alphaVantage.url + objApi.alphaVantage.function.intraday +
-        "symbol=" + obj.symbol + "&" + "interval=" + objApi.alphaVantage.interval + "min" + objApi.alphaVantage.key + "&datatype=json";
+        "symbol=" + objMatchedData.symbol +
+        "&" + "interval=" + objApi.alphaVantage.interval + "min" + objApi.alphaVantage.key + "&datatype=json";
 
-    $.ajax({
+    return $.ajax({
         url: url,
+        timeout: 10000,
         method: "GET"
-    }).done(function (intraDayData) {
-        var intraDayData = intraDayData['Time Series (5min)'];
-        // console.log("intraDayData", intraDayData);
-        var mostRecentIntraDayData = intraDayData[Object.keys(intraDayData)[0]];
+    });
+    // }).done(function (response) {
+    //     var response = response['Time Series (5min)'];
+    //     // console.log("intraDayData", intraDayData);
+    //     var mostRecentIntraDayData = response[Object.keys(response)[0]];
+    //     objMatchedData.price = mostRecentIntraDayData['1. open'];
+    //     objMatchedData.volume = mostRecentIntraDayData['5. volume'];
 
-        var objIntradayData = {
-            price: mostRecentIntraDayData['1. open'],
-            volume: mostRecentIntraDayData['5. volume']
-        };
-        console.log("objIntradayData.price", objIntradayData.price);
-        console.log("objIntradayData.volume", objIntradayData.volume);
-        return objIntradayData;
+    //     console.log("objIntradayData.price", objMatchedData.price);
+    //     console.log("objIntradayData.volume", objMatchedData.volume);
+    //     return objMatchedData;
+
+    // }).fail(function (err) {
+    //     throw err;
+    // });
+}
+
+function getStock() {
+    console.log("in the getStock function")
+    // var objComp = parseCompanyData(comp);
+    // return the daily and intraday day based on the company selected
+    // getDailyStockData().done(function(data) {
+    //     console.log("data 305:", data);
+    //     var data = data['Time Series (Daily)'];
+    //     console.log("data 307:", data);
+    //     var todaysData = data[Object.keys(data)[0]];
+    //     var yesterdaysData = data[Object.keys(data)[1]];
+    //     // add today's opening price string and yesterday's closing price string
+    //     objMatchedData.openPrice = todaysData['1. open'];
+    //     objMatchedData.closingPrice = yesterdaysData['4. close'];
+    //     console.log("objDailyData.openPrice", objMatchedData.openPrice);
+    //     console.log("objDailyData.closingPrice", objMatchedData.closingPrice);
+    //     // return objDailyData;
+    // }).fail(function (err) {
+    //     throw err;
+    // });
+    getIntraDayStockData().done(function (response) {
+        var response = response['Time Series (5min)'];
+        // console.log("intraDayData", intraDayData);
+        var mostRecentIntraDayData = response[Object.keys(response)[0]];
+        objMatchedData.price = mostRecentIntraDayData['1. open'];
+        objMatchedData.volume = mostRecentIntraDayData['5. volume'];
+
+        console.log("objMatchedData.price", objMatchedData.price);
+        console.log("objMatchedData.volume", objMatchedData.volume);
+        // return objMatchedData;
 
     }).fail(function (err) {
         throw err;
     });
-}
-
-function getStock(comp) {
-    console.log("in the getStock function")
-    var objComp = parseCompanyData(comp);
-    // return the daily and intraday day based on the company selected
-    var objDailyData = getDailyStockData(objComp);
-    var objIntraDayData = getIntraDayStockData(objComp);
 
     // combine the objects into a singular object that gets written to the HTML
-    var objHtmlData = {
-        company: objComp.name,
-        symbol: objComp.symbol,
-        url: objComp.url,
-        img: objComp.img,
-        price: objIntradayData.price,
-        volume: objIntradayData.volume,
-        openPrice: objDailyData.openPrice,
-        closingPrice: objDailyData.closingPrice
-    }
+    console.log("after capturing daily and intraday data: objMatchedData:", objMatchedData);
     // write the data to the html
-    writeStock(objHtmlData);
+    writeStock();
 }
 
 
-function writeStock(obj) {
+function writeStock() {
 
     console.log("in writesStock function");
     // clear out old data
     $(".stock-price").empty();
 
-    currentPrice = parseInt(obj.price);
+    var currentPrice = parseInt(objMatchedData.price);
     currentPrice = currentPrice.toFixed(2);
 
     var sizeDiv = $("<div>");
@@ -395,7 +403,7 @@ function writeStock(obj) {
     cardImageDiv.addClass("card-image");
     rowDiv.append(cardImageDiv);
 
-    var image = "assets/images/" + obj.img;
+    var image = "assets/images/" + objMatchedData.img;
     console.log("image", image);
     var cardImageSrc = $("<img>");
     cardImageSrc.addClass("news-image");
@@ -432,16 +440,16 @@ function writeStock(obj) {
     tdPrice.append(currentPrice);
     tableRow.append(tdPrice);
     var tdVolume = $("<td>");
-    tdVolume.append(obj.volume);
+    tdVolume.append(objMatchedData.volume);
     tableRow.append(tdPrice, tdVolume);
 
-    cardContentDiv.html("<h5>" + obj.company + "</h5>");
+    cardContentDiv.html("<h5>" + objMatchedData.name + "</h5>");
     cardContentDiv.append(priceTable);
 
     cardStackedDiv.append(cardContentDiv);
 
     var cardActionDiv = $("<div>");
     cardActionDiv.addClass("card-action");
-    cardActionDiv.html("<a target='_blank' href=" + obj.url + ">Investor Relations</a>");
+    cardActionDiv.html("<a target='_blank' href=" + objMatchedData.url + ">Investor Relations</a>");
     cardStackedDiv.append(cardActionDiv);
 }
