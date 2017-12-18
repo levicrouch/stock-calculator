@@ -6,6 +6,7 @@
 // Objects and variables
 ///////////////////////////////////////////////////
 // Create empty object
+
 objMatchedData = {
     property: "value"
 };
@@ -30,8 +31,20 @@ objCompany = {
         {
             name: "Apple",
             symbol: "AAPL",
-            url: "http://investor.apple.com/",
+            url: "http://investor.apple.com",
             img: "apple.png"
+        },
+        {
+            name: "Alphabet",
+            symbol: "GOOGL",
+            url: "https://abc.xyz/investor",
+            img: "alphabet.png"
+        },
+        {
+            name: "Disney",
+            symbol: "DIS",
+            url: "https://thewaltdisneycompany.com/investor-relations",
+            img: "disney.png"
         },
         {
             name: "Amazon",
@@ -42,7 +55,7 @@ objCompany = {
         {
             name: "Microsoft",
             symbol: "MSFT",
-            url: "https://www.microsoft.com/en-us/investor/",
+            url: "https://www.microsoft.com/en-us/investor",
             img: "microsoft.png"
         },
         {
@@ -54,7 +67,7 @@ objCompany = {
         {
             name: "Google",
             symbol: "GOOG",
-            url: "https://abc.xyz/investor/",
+            url: "https://abc.xyz/investor",
             img: "google.png"
         },
         {
@@ -72,13 +85,13 @@ objCompany = {
         {
             name: "Amgen",
             symbol: "AMGN",
-            url: "http://investors.amgen.com/",
+            url: "http://investors.amgen.com",
             img: "amgen.png"
         },
         {
             name: "Comcast",
             symbol: "CMCSA",
-            url: "http://www.cmcsa.com/",
+            url: "http://www.cmcsa.com",
             img: "comcast.png"
         },
         {
@@ -114,13 +127,13 @@ objCompany = {
         {
             name: "Kraft Heinz",
             symbol: "KHC",
-            url: "http://ir.kraftheinzcompany.com/",
+            url: "http://ir.kraftheinzcompany.com",
             img: "kraftheainz.jpg"
         },
         {
             name: "Paypal",
             symbol: "PYPL",
-            url: "https://investor.paypal-corp.com/",
+            url: "https://investor.paypal-corp.com",
             img: "paypal.png"
         },
         {
@@ -144,13 +157,13 @@ objCompany = {
         {
             name: "Celgene",
             symbol: "CELG",
-            url: "http://ir.celgene.com/",
+            url: "http://ir.celgene.com",
             img: "celgene.png"
         },
         {
             name: "Priceline",
             symbol: "PCLN",
-            url: "http://ir.pricelinegroup.com/",
+            url: "http://ir.pricelinegroup.com",
             img: "priceline.png"
         },
         {
@@ -162,19 +175,19 @@ objCompany = {
         {
             name: "Netflix",
             symbol: "NFLX",
-            url: "https://ir.netflix.com/",
+            url: "https://ir.netflix.com",
             img: "netflix.png"
         },
         {
             name: "Walgreens",
             symbol: "WBA",
-            url: "http://investor.walgreensbootsalliance.com/",
+            url: "http://investor.walgreensbootsalliance.com",
             img: "walgreens.png"
         },
         {
             name: "Tesla",
             symbol: "TSLA",
-            url: "http://ir.tesla.com/",
+            url: "http://ir.tesla.com",
             img: "tesla.png"
         },
         {
@@ -190,7 +203,7 @@ objCompany = {
             img: "berkshire.png"
         },
         {
-            name: "Johnson & Johnson",
+            name: "Johnson",
             symbol: "JNJ",
             url: "http://www.investor.jnj.com",
             img: "johnson.png"
@@ -286,10 +299,12 @@ function parseCompanyData() {
     for (i = 0; i < objCompany.companies.length; i++) {
         var companyFromObject = objCompany.companies[i].name.toLowerCase();
         if (clickedCompanyName === companyFromObject) {
-            objMatchedData.name = objCompany.companies[i].name.toLowerCase(),
-                objMatchedData.symbol = objCompany.companies[i].symbol.toUpperCase(),
-                objMatchedData.url = objCompany.companies[i].url,
-                objMatchedData.img = objCompany.companies[i].img
+            objMatchedData.name = objCompany.companies[i].name.toLowerCase();
+                objMatchedData.symbol = objCompany.companies[i].symbol.toUpperCase();
+                objMatchedData.url = objCompany.companies[i].url;
+                objMatchedData.img = objCompany.companies[i].img;
+                objMatchedData.price = 0;
+                objMatchedData.volume = 0;
             console.log("objMatchedData:", objMatchedData);
             return objMatchedData;
         }
@@ -338,6 +353,7 @@ function getIntraDayStockData() {
 
 function getStock() {
     console.log("in the getStock function")
+    // populateCompanyData();
     // var objComp = parseCompanyData(comp);
     // return the daily and intraday day based on the company selected
     // getDailyStockData().done(function(data) {
@@ -371,9 +387,11 @@ function getStock() {
     });
 
     // combine the objects into a singular object that gets written to the HTML
-    console.log("after capturing daily and intraday data: objMatchedData:", objMatchedData);
+    console.log("after capturing intraday data: objMatchedData:", objMatchedData);
     // write the data to the html
-    writeStock();
+    if (objMatchedData.price !== 0){
+        writeStock();
+    }
 }
 
 

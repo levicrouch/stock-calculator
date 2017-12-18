@@ -56,18 +56,12 @@ $(document).ready(function () {
         }
     }
 
-    function getStockData() {
-        console.log("In getStockData");
-        console.log("Company Name:", clickedCompanyName);
-        getStock();
-    }
-
     function getNewsData() {
         console.log("in the getNewsData function");
         console.log("Company Name:", clickedCompanyName);
         // call the getNews function to grab the news and populate the html
         getNews();
-        }
+    }
 
     function populateCompanyData() {
         // get the company name from the image id and set it globally
