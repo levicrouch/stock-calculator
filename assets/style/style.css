@@ -29,7 +29,6 @@ header {
     left: 100px;
     right: 100px;
     float: center;
-    /* position: fixed; */
 }
 
 .left-nav {
@@ -50,7 +49,6 @@ header {
     padding: 15px;
     border: 2px solid;
     width: 100%;
-    /* background-image: url('../images/borat.jpg');  */
     text-align: center;
     position: relative;
     -webkit-transition: all 0.7s ease 0s;
@@ -59,10 +57,6 @@ header {
     transition: all 0.7s ease 0s;
 }
 
-/* .main-display {
-    height: 600px;
-} */
-
 .news-feed {
     height: 300px;
     background-color: rgb(14, 176, 226);
@@ -70,12 +64,8 @@ header {
     text-align: center;
     text-decoration: bold;
     font-size: 25px;
-    /* position: ; */
 }
-/* .news-image, .card-horiz, .news-card, .card-stacked{
-    height: 50px;
-} */
-/* Invisible */
+
 .basic-calculator,
 .stock-buy-calc,
 .stock-sell-calc {
@@ -122,41 +112,14 @@ header {
 .stock-price{
     height: 360px;
 }
-/* .card-horiz {
-    height: 250px;
-} */
-/* .card-content{
-    width: 800px;
-}
 
-.card-image{
-    width: 300px;
-    padding-bottom: 30px;
-    padding-left:10px;
-    padding-right: 30px;
-    padding-top: 30px;
-}
-
-.news-feed-icon, .headline-title {
-    float: left;
-    margin-right: 20px;
-}
-.news-feed {
-    height: 50px;
-    background-color: white;
-    /* position: absolute; */
-    /* display: inline-block;
-} */
 .headline-title {
     height: -webkit-fill-available;
 }
 .link-to-article {
     float: right;
 }
-#search {
-    
- }
- 
+
  #search input[type="text"] {
     /* background: url(search-white.png) no-repeat 10px 6px #fcfcfc ; */
     background: no-repeat 10px 6px #fcfcfc ;
