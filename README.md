@@ -1,1 +1,3 @@
 # stock-calculator
+
+This project shows basic information for folks who may be new to stocks and investing. The site is designed to show a "top 10" of reccommended companies to invest in. The user will select the image of the company they are interested in and the user will be able to view the latest stock prices and news from Bloomberg. The user can select another company and see their information as well, all without re-loading the page. 
